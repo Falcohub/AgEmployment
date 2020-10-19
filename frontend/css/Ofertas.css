@@ -51,18 +51,15 @@ body{
 .promo-title
 {
     font-size: 40px;
-    font-weight: 600;
-    margin-top: 100px;
+    font-weight: 400;
+    margin-top: 40px;
 }
 .play-btn
 {
     width: 50px;
     margin: 20px;
 }
-.bottom-img
-{
-    width: 100%;
-}
+
 /*--------------SERVICE SECTION--------*/
 #services
 {
@@ -113,6 +110,66 @@ body{
     border-radius: 20px;
     background-image: linear-gradient(to right, #2db869,#0b9756);
 
+}
+
+div#busca{
+   
+    background-color: beige;
+}
+div#row1{
+    margin-top: 20px;
+    
+}
+div#row2{
+    margin-top: 20px;
+}
+div#row3{
+    margin-top: 20px;   
+}
+div#fila4{
+    margin-top: 20px;
+}
+
+div#fila5{
+    margin-top: 20px;
+}
+
+div#fila6{
+    margin-top: 20px;
+}
+
+div#fila1{
+    margin-top: 20px;
+}
+
+div#fila2{
+    margin-top: 20px;
+}
+
+div#fila3{
+    margin-top: 20px;
+}
+#filtro{
+   
+    height: 90px;
+    left: 120px;
+   
+}
+.buscar-text{
+    width: 800px;
+    height: 42px;
+
+
+}
+.btn-warning{
+    height: 45px;
+    width: 140px;
+}
+
+#pr{
+   background-color:transparent;
+   text-align: center center;
+   
 }
 /*---------------------ABOUTS-US SECTION----------------------------*/
 
