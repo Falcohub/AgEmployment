@@ -112,65 +112,86 @@ body{
 
 }
 
-div#busca{
-   
-    background-color: beige;
-}
-div#row1{
-    margin-top: 20px;
+div#con{
+    margin-top: 40px;
     
 }
-div#row2{
-    margin-top: 20px;
+
+div#row1{ 
+    height: 550px;
+    
 }
-div#row3{
-    margin-top: 20px;   
+div#car1{
+    height: 400px;
+    width: 722px;
+    
 }
+div#car2{
+    height: 446px;
+    width: 300px;
+    
+}
+
 div#fila4{
-    margin-top: 20px;
+    height: 400px;
+    border: 2px solid;
 }
 
-div#fila5{
-    margin-top: 20px;
+div#body{
+    height: 400px;
 }
 
-div#fila6{
-    margin-top: 20px;
+div#descripcion{
+    height: 120px;
 }
 
-div#fila1{
-    margin-top: 20px;
+div#programa{
+    height: 60px;
 }
 
-div#fila2{
-    margin-top: 20px;
+div#req{
+    height: 20px;
 }
 
-div#fila3{
-    margin-top: 20px;
-}
-#filtro{
-   
-    height: 90px;
-    left: 120px;
-   
-}
-.buscar-text{
-    width: 800px;
-    height: 42px;
-
-
-}
-.btn-warning{
-    height: 45px;
-    width: 140px;
+div#habil{
+    height: 130px;
 }
 
-#pr{
-   background-color:transparent;
-   text-align: center center;
-   
+div#cono{
+    height: 130px;
 }
+
+input#com{
+    margin-top: 10px;
+    height: 25px;
+}
+input#car{
+    margin-top: 10px;
+    height: 25px;
+}
+input#emp{
+    margin-top: 10px;
+    height: 25px;
+}
+input#dep{
+    margin-top: 10px;
+    height: 25px;
+}
+input#sal{
+    margin-top: 10px;
+    height: 25px;
+}
+#services{
+    background-color:white;
+}
+.title{
+    border:2px solid;
+    background-color: aliceblue;
+}
+
+
+
+
 /*---------------------ABOUTS-US SECTION----------------------------*/
 
 #about-us
