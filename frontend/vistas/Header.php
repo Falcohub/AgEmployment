@@ -29,7 +29,7 @@
                         <a class="nav-link" href="#social-media">CONTACTOS</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-warning">Iniciar Sesion</button>
+                        <button type="button" class="btn btn-warning" >Iniciar Sesion</button>
                     </li>
                     <li class="nav-item">
                         <button type="button" class="btn btn-warning">Registrarse</button>
