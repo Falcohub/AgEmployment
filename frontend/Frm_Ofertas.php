@@ -1,28 +1,28 @@
-<?php include ('Header.php') ?>
+<?php include ('vistas/Header.php') ?>
 
     <!---------------------BANNER SECTION------------------------------>
 
     <section id="banner">
         <div class="container" id="pr">
-            <div class="row">
-                <div class="col-md-6">
-                    <p class="promo-title">OFertas de trabajos</p>
-                    <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit.Laudantium minima incidunt voluptatem
+            
+                    <p class="promo-title">Ofertas de trabajos</p>
+                    <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit.Laudantium minima incidunt          voluptatem
                         tempora quae velit corporis? Necessitatibus deserunt quia
                         hic magni voluptas ipsum at, aliquam, saepe blanditiis debitis itaque eum.
                     </P>
+                
+        </div>
+    <!------------------------------ BUSCAR ---------------------------->
+        <div class="container" id="buscar">
+            <div class="row">
+                <div class="col-10">
+                    <input type="text" class="form-control" id="buscar" placeholder="Ingresa el empleo que deseas buscar para ti!">
+                </div>
+                <div class="col mb-4">
+                    <button type="button" class="btn btn-warning">Buscar</button>
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <div class="fil" id="filtro">
-                <input type="text" size="70" width="800" class="buscar-text"  placeholder="Ingresa el empleo que deseas buscar para ti!">
-                <a href="" class="bottom"></a>
-                <button type="button" class="btn btn-secondary">Buscar</button>
-            </div>
-        </div>
-
     </section>
 
     <!----------------------SERVICES SECTION--------->
@@ -191,4 +191,4 @@
     </section>
 
     <!---------------------Footer Section-------------------------->
-    <?php include ('Footer.php') ?>
+    <?php include ('vistas/Footer.php') ?>

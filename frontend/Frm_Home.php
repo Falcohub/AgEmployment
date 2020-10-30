@@ -1,4 +1,4 @@
-<?php include ('Header.php') ?>
+<?php include ('vistas/Header.php') ?>
 
   <!---------------------BANNER SECTION------------------------------>
 
@@ -97,4 +97,4 @@
   </section>
 
   <!---------------------Footer Section-------------------------->
-  <?php include ('Footer.php') ?>
+  <?php include ('vistas/Footer.php') ?>

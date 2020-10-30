@@ -149,22 +149,6 @@ div#fila2{
 div#fila3{
     margin-top: 20px;
 }
-#filtro{
-   
-    height: 90px;
-    left: 120px;
-   
-}
-.buscar-text{
-    width: 800px;
-    height: 42px;
-
-
-}
-.btn-warning{
-    height: 45px;
-    width: 140px;
-}
 
 #pr{
    background-color:transparent;
