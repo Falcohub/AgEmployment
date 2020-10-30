@@ -58,14 +58,14 @@
 <!--sidebar start-->
 <div class="sidebar mt-5">
     <div class="profile_info">
-        <img src="img/logo.jpeg" class="profile_image" alt="">
+        <img src="logo.jpeg" class="profile_image" alt="">
         <h4>Empresa</h4>
     </div>
     <a href="Frm_InfoEmpresa.php"><i class="fas fa-user-edit"></i><span>Editar informacion</span></a>
     <a href="Frm_PublicarEmpleo.php"><i class="fas fa-bell"></i><span>Publicar empleo</span></a>
     <a href="Frm_Postulaciones.php"><i class="fas fa-address-card"></i><span>Postulados</span></a>
     <a href="Frm_InfoCuenta.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-    <a href="Frm_Home.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+    <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
 </div>
 <!--sidebar end-->
 
