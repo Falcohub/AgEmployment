@@ -47,12 +47,11 @@
         <i class="fa fa-bars nav_btn"></i>
     </div>
     <div class="mobile_nav_items">
-        <a href="#"><i class="fas fa-user-edit"></i><span>Editar informacion</span></a>
-        <a href="#"><i class="fas fa-bell"></i><span>Publicar empleo</span></a>
-        <a href="#"><i class="fas fa-address-card"></i><span>Postulados</span></a>
-        <a href="#"><i class="fas fa-unlock-alt"></i><span>Cambiar contraseña</span></a>
-        <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
-
+    <a href="Frm_InfoEmpresa.php"><i class="fas fa-user-edit"></i><span>Editar informacion</span></a>
+    <a href="Frm_PublicarEmpleo.php"><i class="fas fa-bell"></i><span>Publicar empleo</span></a>
+    <a href="Frm_Postulaciones.php"><i class="fas fa-address-card"></i><span>Postulados</span></a>
+    <a href="Frm_InfoCuenta.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
+    <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
 </div>
 <!--mobile navigation bar end-->
@@ -69,3 +68,19 @@
     <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
 </div>
 <!--sidebar end-->
+
+<!-----------------Smooth Scroll------------------------>
+<script src="js/smooth-scroll.js"></script>
+  <script>
+    var scroll = new SmoothScroll('a[href*="#"]');
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
