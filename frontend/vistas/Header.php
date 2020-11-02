@@ -13,26 +13,26 @@
 <body>
     <section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="img/—Pngtree—creative company_1420804.png" alt=""></a>
+            <a class="navbar-brand" href="Frm_Home.php"><img src="img/—Pngtree—creative company_1420804.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Frm_Home.php">INICIO</a>
+                        <a class="nav-link" href="Frm_Home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Frm_Ofertas.php">OFERTAS LABORALES</a>
+                        <a class="nav-link" href="Frm_Ofertas.php">Ofertas laborales</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#social-media">CONTACTOS</a>
+                        <a class="nav-link" href="#social-media">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-warning" >Iniciar Sesion</button>
+                        <a class="btn btn-warning rounded-pill border" href="Frm_Login.php">Iniciar Sesion</a>
                     </li>
                     <li class="nav-item">
-                        <button type="button" class="btn btn-warning">Registrarse</button>
+                        <a class="btn btn-warning rounded-pill border" href="Frm_Registro.php">Registrarse</a>
                     </li>
                 </ul>
             </div>

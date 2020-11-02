@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/ForgetPass.css">
+    <link rel="stylesheet" href="css/Login.css">
     <title>Login y Registro</title>
 </head>
 <body>
@@ -39,6 +39,6 @@
     <script src="https://kit.fontawesome.com/64d58efce2.js"
     crossorigin="anonymous">
     </script>
-<script src="js/ForgetPass.js"></script>
+<script src="js/Login.js"></script>
 </body>
 </html>

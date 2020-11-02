@@ -10,7 +10,6 @@
           <P>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
             Laudantium minima incidunt voluptatem tempora quae velit corporis? Necessitatibus deserunt quia hic magni
             voluptas ipsum at, aliquam, saepe blanditiis debitis itaque eum.</P>
-          <a href="#"><img src="img/play.png" alt="" class="play-btn">Esto es un tutorial</i></a>
         </div>
         <div class="col-md-6 text-center">
           <img src="img/illustrator.svg" class="img-fluid" alt="">
