@@ -17,7 +17,7 @@
 <body>
     <section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="img/—Pngtree—creative company_1420804.png" alt=""></a>
+            <a class="navbar-brand" href="Frm_Home.php"><img src="img/—Pngtree—creative company_1420804.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -32,8 +32,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#social-media">CONTACTOS</a>
                     </li>
-                    <li class="nav-item">
-
+                    <li class="nav">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle fas fa-user-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Opcion
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <button class="dropdown-item" type="button">Perfil</button>
+                                <button class="dropdown-item" type="button">Informacion</button>
+                                <button class="dropdown-item" type="button">Cerrar sesion</button>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -47,7 +56,7 @@
             <i class="fa fa-bars nav_btn"></i>
         </div>
         <div class="mobile_nav_items">
-        <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
+            <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
             <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
             <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
         </div>
@@ -56,12 +65,11 @@
     <!--sidebar start-->
     <div class="sidebar mt-5">
         <div class="profile_info">
-            <img src="logo.jpeg" class="profile_image" alt="">
-            <h4>Estudiante</h4>
+            <img src="img/logo.jpeg" class="profile_image" alt="">
         </div>
-            <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
-            <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+        <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
+        <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
+        <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
     <!--sidebar end-->
 
