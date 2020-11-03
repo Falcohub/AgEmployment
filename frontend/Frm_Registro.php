@@ -1,4 +1,4 @@
-<?php //require ('../backend/PDO/conexion.include.php') ?>
+<?php require ('..backend/PDO/conexion.include.php')?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +14,7 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="" class="sign-in-form" method="POST">
+                <form action="Registro.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Registro estudiante</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>
@@ -32,11 +32,7 @@
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="TxtCorreo" placeholder="Correo">
                     </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" name="TxtContraseña" placeholder="Contraseña">
-                    </div>
-                    <input type="submit" value="Registrarse" class="btn solid">
+                    <button type="submit" value="Registrarse" class="btn solid">Registrarse</button>
 
                     <p class="social-text">Registrarse con</p>
                     <div class="social-media">

@@ -86,3 +86,33 @@ CREATE TABLE tbl_postulaciones(
     FOREIGN KEY(pos_fkEmpleo) REFERENCES  tbl_empleos(emp_pkid),
     FOREIGN KEY(pos_fkEstado) REFERENCES  tbl_estado(est_pkid)
 ) ENGINE = INNODB;
+
+# Crear procedimiento almacenado para registrar y crear usuario
+DELIMITER //
+CREATE PROCEDURE sp_registrar_estudiante(IN varPKID VARCHAR(20), IN varNombres VARCHAR(100), IN varApellidos VARCHAR(100), IN varCorreo VARCHAR(100), varContraseña varchar(100))
+BEGIN
+	DECLARE intBuscar INT
+    SELECT intBuscar = (SELECT COUNT(*) FROM tbl_personas WHERE prs_pkid = varPKID;
+    IF (intBuscar = 0)
+    	BEGIN
+    		INSERT INTO tbl_personas (prs_pkid, prs_ddi, prs_nombres, prs_apellidos, prs_correo, user_contraseña) 
+        	VALUES (varPKID, varNombres, varApellidos, varCorreo, varContraseña);
+        
+       		INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkEstado, user_fecha)
+       	 	VALUES (varCorreo, varContraseña, varPKID, 1, CURRENT_DATE)
+    END IF;
+    IF (intBuscar = 1)
+       	BEGIN
+        	SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El estudiante ya se encuentra registrado';
+    END IF;              
+END
+
+DELIMITER //
+CREATE PROCEDURE SP_Registrar(IN varPKID VARCHAR(20), IN varNombres VARCHAR(100), IN varApellidos VARCHAR(100), IN varCorreo VARCHAR(100))	
+BEGIN        
+    INSERT INTO tbl_personas (prs_pkid, prs_nombres, prs_apellidos, prs_correo) 
+    VALUES (varPKID, varNombres, varApellidos, varCorreo);
+    
+    INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkEstado, user_fecha)
+    VALUES (varCorreo, varPKID, varPKID, 1, CURRENT_DATE);
+END
