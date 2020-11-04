@@ -1,4 +1,3 @@
-<?php require ('..backend/PDO/conexion.include.php')?>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +13,7 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="Registro.php" class="sign-in-form" method="POST">
+                <form action="../backend/RegistroSP.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Registro estudiante</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>

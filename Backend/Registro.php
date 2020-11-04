@@ -1,6 +1,6 @@
 <?php
 
-    include ('backend/PDO/conexion.function.php');
+    /*include 'conexion.php';
 
     $documento = $_POST['TxtDocumento'];
     $nombres = $_POST['TxtNombres'];
@@ -8,7 +8,7 @@
     $correo = $_POST['TxtCorreo'];
 
     $query = "INSERT INTO tbl_personas(prs_pkid, prs_nombres, prs_apellidos, prs_correo)
-                VALUES ('$documento', '$nombres', '$apellidos', '$correo')";
+                VALUES ('$documento', '$nombres', '$apellidos', '$correo');";
 
-    $ejecutar = mysqli_query($dsn, $query);
+    $ejecutar = mysqli_query($conexion, $query);*/
 ?>
