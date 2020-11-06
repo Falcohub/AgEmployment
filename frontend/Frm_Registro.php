@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,23 +12,23 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="../backend/RegistroSP.php" class="sign-in-form" method="POST">
+                <form action="../backend/RegistroEstudiante.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Registro estudiante</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>
-                        <input type="text" name="TxtDocumento" placeholder="Documento">
+                        <input type="text" name="TxtDocumento" placeholder="Documento" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="TxtNombres" placeholder="Nombres">
+                        <input type="text" name="TxtNombres" placeholder="Nombres" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="TxtApellidos" placeholder="Apellidos">
+                        <input type="text" name="TxtApellidos" placeholder="Apellidos" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" name="TxtCorreo" placeholder="Correo">
+                        <input type="text" name="TxtCorreo" placeholder="Correo" required />
                     </div>
                     <button type="submit" value="Registrarse" class="btn solid">Registrarse</button>
 
@@ -41,23 +40,19 @@
                     </div>
                 </form>
 
-                <form action="" class="sign-up-form" method="POST">
+                <form action="../backend/RegistroEmpresa.php" class="sign-up-form" method="POST">
                     <h2 class="tittle">Registro empresa</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>
-                        <input type="text" placeholder="NIT">
+                        <input type="text" name="TxtNIT" placeholder="NIT" required/> 
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Nombres">
+                        <input type="text" name="TxtNombreEmpresa" placeholder="Nombre empresa" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="Correo">
-                    </div>
-                    <div class="input-field">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña">
+                        <input type="text" name="TxtCorreo" placeholder="Correo" required/>
                     </div>
                     <input type="submit" value="Registrarse" class="btn solid">
 
@@ -74,8 +69,8 @@
         <div class="panels-container">
             <div class="panel left-panel">
                 <div class="content">
-                    <h3>Crear una cuenta</h3>
-                    <p>Si aun no tienes una cuenta de usuario resgistrate de forma gratuita y enterate de todas las ofertas de empleo que tenemos disponible para ti.
+                    <h3>Registrar empresa</h3>
+                    <p>Publica tus ofertas laborales registrando tu cuenta como empresa.
                     </p>
                     <button class="btn transparent" id="sign-up-btn">Registrarse</button>
                 </div>
@@ -84,10 +79,10 @@
             </div>
             <div class="panel right-panel">
                 <div class="content">
-                    <h3>Inicia sesión</h3>
-                    <p>Si ya tienes una cuenta o te encuentras registrado ingresa desde aqui.
+                    <h3>Registrar estudiante</h3>
+                    <p>Si eres un estudiante en busca de practicas laborales, registrate aqui y enterate de todas las oferta laborales que tenemos disponible para ti.
                     </p>
-                    <button class="btn transparent" id="sign-in-btn">Ingresar</button>
+                    <button class="btn transparent" id="sign-in-btn">Registrarse</button>
                 </div>
 
                 <img src="img/Pensar.svg" class="image" alt="">

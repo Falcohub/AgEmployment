@@ -1,23 +1,48 @@
 <?php
 
-    class connection{
-        private $conn;
+class Database{
 
-        public function __construct(){
-            $this->conn = new mysqli("localhost", "root", "", "db_agempleo");
-        }
+    private $host;
+    private $db;
+    private $user ;
+    private $password;
+    private $charset;
 
-        public function get_connection(){
-            return $this->conn;
-        }
+    public function __construct(){
+        $this->host = 'localhost';
+        $this->db = 'db_agempleo';
+        $this->user = 'root';
+        $this->password = '';
+        $this->charset = 'utf8mb4';
     }
 
-    /*$conexion = mysqli_connect("localhost", "root", "", "db_agempleo");
+    function connect(){
+        try{
+            $connection = "mysql:host=" . $this->host . ";dbname=" . $this->db . ";charset=" . $this->charset;
+            $options = [
+                PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES   => false,
+            ];
+            
+            $pdo = new PDO($connection, $this->user, $this->password, $options);
+    
+            return $pdo;
+        }catch(PDOException $e){
+            print_r('Error connection: ' . $e->getMessage());
+        }
+    }
+}
 
-    if($conexion){
-        echo 'conexion correcta';
-    }else{
-        echo 'conexcion incorrecta';
-    }*/
 
-?>
+
+/*class connection{
+    private $conn;
+
+    public function __construct(){
+        $this->conn = new mysqli("localhost", "root", "", "db_agempleo");
+    }
+
+    public function get_connection(){
+        return $this->conn;
+    }
+}*/

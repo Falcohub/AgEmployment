@@ -12,15 +12,15 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="" class="sign-in-form" method="POST">
+                <form action="../backend/Login.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Iniciar sesión</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Usuario">
+                        <input type="text" name="TxtUsuario" placeholder="Usuario" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña">
+                        <input type="password" name="TxtPassword" placeholder="Contraseña" required/>
                     </div>
                     <a href="Frm_RecuperarPass.php">¿Olvidaste tu contraseña?</a>
                     <input type="submit" value="Iniciar sesion" class="btn solid">
