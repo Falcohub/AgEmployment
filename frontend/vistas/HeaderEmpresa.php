@@ -63,7 +63,7 @@
             <a href="Frm_PublicarEmpleo.php"><i class="fas fa-bell"></i><span>Publicar empleo</span></a>
             <a href="Frm_Postulaciones.php"><i class="fas fa-address-card"></i><span>Postulados</span></a>
             <a href="Frm_InfoCuenta.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+            <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -76,7 +76,7 @@
         <a href="Frm_PublicarEmpleo.php"><i class="fas fa-bell"></i><span>Publicar empleo</span></a>
         <a href="Frm_Postulaciones.php"><i class="fas fa-address-card"></i><span>Postulados</span></a>
         <a href="Frm_InfoCuenta.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-        <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+        <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
     <!--sidebar end-->
 

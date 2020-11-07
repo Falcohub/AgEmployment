@@ -40,7 +40,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <button class="dropdown-item" type="button">Cerrar sesion</button>
+                                <button <?php header('location: ../backend/CerrarSesion.php')?>class="dropdown-item" type="button">Cerrar sesion</button>
                             </div>
                         </div>
                     </li>
@@ -58,7 +58,7 @@
         <div class="mobile_nav_items">
             <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
             <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-            <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+            <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -69,7 +69,7 @@
         </div>
         <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
         <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-        <a href="#"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+        <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
     <!--sidebar end-->
 

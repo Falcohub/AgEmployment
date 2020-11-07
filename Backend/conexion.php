@@ -4,7 +4,7 @@ class Database{
 
     private $host;
     private $db;
-    private $user ;
+    private $user;
     private $password;
     private $charset;
 
@@ -31,18 +31,7 @@ class Database{
             print_r('Error connection: ' . $e->getMessage());
         }
     }
+
 }
 
-
-
-/*class connection{
-    private $conn;
-
-    public function __construct(){
-        $this->conn = new mysqli("localhost", "root", "", "db_agempleo");
-    }
-
-    public function get_connection(){
-        return $this->conn;
-    }
-}*/
+?>
