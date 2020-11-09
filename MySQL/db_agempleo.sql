@@ -94,11 +94,12 @@ BEGIN
     INSERT INTO tbl_personas (prs_pkid, prs_nombres, prs_apellidos, prs_correo) 
     VALUES (varPKID, varNombres, varApellidos, varCorreo);
     
-    INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkEstado, user_fecha)
-    VALUES (varCorreo, varPKID, varPKID, 1, CURRENT_DATE);
+    INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkRol, user_fkEstado, user_fecha)
+    VALUES (varCorreo, varPKID, varPKID, 1, 1, CURRENT_DATE);
 END
 
 # Crear procedimiento almacenado para registrar empresa y crear usuario
+DELIMITER //
 CREATE PROCEDURE SP_RegistrarEmpresa (
     				IN varPKID VARCHAR(20), 
     				IN varNombres VARCHAR(100), 
@@ -107,6 +108,6 @@ BEGIN
     INSERT INTO tbl_personas (prs_pkid, prs_ddi, prs_nombres, prs_correo) 
     VALUES (varPKID, 'NIT', varNombres, varCorreo);
     
-    INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkEstado, user_fecha)
-    VALUES (varCorreo, varPKID, varPKID, 1, CURRENT_DATE);
+    INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkRol, user_fkEstado, user_fecha)
+    VALUES (varCorreo, varPKID, varPKID, 2, 1, CURRENT_DATE);
 END

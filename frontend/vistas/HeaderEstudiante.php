@@ -40,7 +40,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <button <?php header('location: ../backend/CerrarSesion.php')?>class="dropdown-item" type="button">Cerrar sesion</button>
+                                <button class="dropdown-item" type="button">Cerrar sesion</button>
                             </div>
                         </div>
                     </li>

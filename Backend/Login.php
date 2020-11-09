@@ -27,8 +27,20 @@
             $row = $consulta->fetch(PDO::FETCH_NUM);
             if($row == true){
                 //validar rol
-                $_SESSION['rol'] = $row[3];
-                header('location: ../frontend/Frm_Home.php');
+                $rol = $row[3];
+                $_SESSION['rol'] = $rol;
+
+                switch($_SESSION['rol']){
+                    case 1 :
+                        header('location: ../frontend/Frm_Home.php');
+                    break;
+                    
+                    case 2;
+                    header('location: ../frontend/Frm_Home.php');
+                    break; 
+    
+                    default:
+                }
             }else{
                 //No existe usuario
                 echo '
