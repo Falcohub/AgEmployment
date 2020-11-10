@@ -30,7 +30,7 @@
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="TxtCorreo" placeholder="Correo" required />
                     </div>
-                    <button type="submit" value="Registrarse" class="btn solid">Registrarse</button>
+                    <button type="submit" value="RegistrarEstudiante" class="btn solid">Registrarse</button>
 
                     <p class="social-text">Registrarse con</p>
                     <div class="social-media">
@@ -54,7 +54,7 @@
                         <i class="fas fa-envelope"></i>
                         <input type="text" name="TxtCorreo" placeholder="Correo" required/>
                     </div>
-                    <input type="submit" value="Registrarse" class="btn solid">
+                    <input type="submit" value="RegistrarEmpresa" class="btn solid">
 
                     <p class="social-text">Registrarse con</p>
                     <div class="social-media">

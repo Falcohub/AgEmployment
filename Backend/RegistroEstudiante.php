@@ -1,44 +1,36 @@
 <?php
     require_once('conexion.php');
-
-    //Ejecutar procedimiento almacenado para registrar persona y usuario
-    $mysql = new connection();
-    $conexion = $mysql->get_connection();
-
+    
     $documento = $_POST['TxtDocumento'];
     $nombres = $_POST['TxtNombres'];
     $apellidos = $_POST['TxtApellidos'];
     $correo = $_POST['TxtCorreo'];
+    $password = sha1($_POST['TxtCorreo']);
+    
+    //Establecer conexión
+    $db = new Database();
+    $conexion = $db->connect();
 
-    //----- Verificar que no se repita documento -----
-    $validar_id = mysqli_query($conexion, "SELECT * FROM tbl_personas WHERE prs_pkid = '$documento'");
-    if (mysqli_num_rows($validar_id) > 0) {
+    //----- Verificar que no se repita el ID -----
+    $validar_id = $conexion->prepare("SELECT * FROM tbl_personas WHERE prs_pkid = '$documento'");
+    $validar_id->execute();
+    if ($validar_id == true)
+    {
         echo '
-                    <script>
-                    alert("Esta persona ya se encuentra registrada.");
-                    window.location = "../frontend/Frm_Registro.php";
-                    </script>
-                    ';
-        exit();
-    };
+        <script>
+        alert("Este documento ya esta registrado.");
+        window.location = "../frontend/Frm_Registro.php";
+        </script>
+        ';
+    }
+        //----- Insertar datos en la tabla personas y usuarios
+        $statement =$conexion->prepare("INSERT INTO tbl_personas(prs_pkid, prs_ddi, prs_nombres, prs_apellidos, prs_correo) VALUES ('$documento', 'CC', '$nombres', '$apellidos', '$correo')");
+        $statement->execute();
+    
+        $statement =$conexion->prepare("INSERT INTO tbl_usuarios(user_pkUsuario, user_contraseña, user_fkPersona, user_fkRol, user_fkEstado, user_fecha)
+        VALUES ('$correo', '$password', '$documento', 1, 1, CURRENT_DATE);");
+        $statement->execute();
 
-    //----- Verificar que no se repita correo -----
-    $validar_correo = mysqli_query($conexion, "SELECT * FROM tbl_personas WHERE prs_correo = '$correo'");
-    if (mysqli_num_rows($validar_correo) > 0) {
-        echo '
-                    <script>
-                    alert("Este correo ya esta en uso.");
-                    window.location = "../frontend/Frm_Registro.php";
-                    </script>
-                    ';
-        exit();
-    };
-
-    $statement = $conexion->prepare("CALL SP_Registrar(?,?,?,?)");
-    $statement->bind_param("ssss", $documento, $nombres, $apellidos, $correo);
-    $statement->execute();
-    $statement->close();
-    $conexion->close();
-
-//----- Cargar la pagina para completar registro -----
-header('location: ../frontend/Frm_InfoEstudiante.php');
+        //----- Cargar la pagina para completar registro -----
+        header('location: ../frontend/Frm_InfoEstudiante.php');
+?>
