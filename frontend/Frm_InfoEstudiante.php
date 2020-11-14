@@ -114,7 +114,7 @@
 
     </div>    
         <div class="card-body">
-            <form action="../backend/InfoEstudiante.php" method="POST">
+            <form action="../backend/Experiencia.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nombre de la anterior empresas</label>

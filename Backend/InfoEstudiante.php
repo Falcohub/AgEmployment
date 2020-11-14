@@ -16,12 +16,7 @@
     $fechaNac = $_POST['TxtFechaNac'];
     $perfil = $_POST['TxtPerfil'];
     //Experiencia Laboral
-    $nombreEmpre = $_POST['TxtNombreEmpresa'];
-    $cargo = $_POST['TxtCargo'];
-    $contactoEmpre = $_POST['TxtContactoEmpre'];
-    $fechaInic = $_POST['TxtFechaInicio'];
-    $fechaFin = $_POST['TxtFechaFin'];
-        
+   
     //Establecer conexión
     $db = new Database();
     $conexion = $db->connect();
@@ -33,11 +28,5 @@
             $_SESSION['documentoEst'] = $documento;
             header('location: ../frontend/Frm_InfoEstudiante.php');
         }
-
-
-         //Experiencia Laboral
-
-         $GuardarExperiencia = $conexion->prepare("INSERT INTO tbl_explaboral(exp_nombreEmpresa, exp_cargo, exp_contactoEmpresa, exp_fechaIni, exp_fechaFin)
-         VALUES ({$_SESSION['documentoEst']},'$nombreEmpresa', '$cargo', '$contactoEmpre', '2020-10-12' , '2020-10-12');");
 
 ?>
