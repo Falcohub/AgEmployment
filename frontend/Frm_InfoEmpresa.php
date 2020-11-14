@@ -1,38 +1,56 @@
-<?php include('vistas/HeaderEmpresa.php') ?>
+<?php 
+    include_once '../backend/conexion.php';
+    
+    session_start();
+    
+    if(!isset($_SESSION['rol'])){
+        header('location: Frm_Login.php');
+    }else {
+        if ($_SESSION['rol'] != 'NIT') {
+            header('location: Frm_Login.php');
+        }
+    }
+    
+    $db = new Database();
+    $conexion = $db->connect();
+    $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['documento']}")->fetch(PDO::FETCH_ASSOC);
+    
+    include 'vistas/HeaderEmpresa.php'; 
+    ?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Perfil empresa</h3>
         <div class="card-body">
-            <form>
+            <form action="../backend/InfoEmpresa.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNIT">NIT</label>
-                        <input type="text" class="form-control" id="inputNIT" placeholder="Ingrese el NIT...">
+                        <input type="text" value="<?php echo $empresa['user_pkid'];?>" name="TxtNIT" class="form-control" id="inputNIT" placeholder="Ingrese el NIT...">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputEmpresa">Nombre empresa</label>
-                        <input type="text" class="form-control" id="inputEmpresa" placeholder="Nombre empresa">
+                        <input type="text" value="<?php echo $empresa['user_nombres'];?>" name="TxtNombreEmpresa" class="form-control" id="inputEmpresa" placeholder="Nombre empresa">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputContacto">Contacto</label>
-                        <input type="text" class="form-control" id="inputContacto" placeholder="Numero de telefono">
+                        <input type="text" value="<?php echo $empresa['user_contacto']?>" name="TxtContacto" class="form-control" id="inputContacto" placeholder="Numero de telefono">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputCorreo">Correo</label>
-                        <input type="email" class="form-control" id="inputCorreo" placeholder="empresa@mail.com">
+                        <input type="email" value="<?php echo $empresa['user_correo']?>" name="TxtCorreo" class="form-control" id="inputCorreo" placeholder="empresa@mail.com">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputDpto">Departamento</label>
-                        <input type="text" class="form-control" id="inputDpto" placeholder="Seleccione departamento...">
+                        <input type="text" value="<?php echo $empresa['user_dpto']?>" name="TxtDpto" class="form-control" id="inputDpto" placeholder="Seleccione departamento...">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="SelectMunicipio">Municipio</label>
-                        <select id="inputMunicipio" class="form-control">
+                        <select value="<?php echo $empresa['user_ciudad']?>" name="CbxMunicipio" id="inputMunicipio" class="form-control">
                             <option selected>Selecione municipio...</option>
                             <option>Chigorodo</option>
                             <option>Carepa</option>
@@ -47,11 +65,11 @@
                 </div>
                 <div class="form-group">
                     <label for="inputDireccion">Direccion</label>
-                    <input type="text" class="form-control" id="inputDireccion" placeholder="Calle 0 # 0 - 0">
+                    <input type="text" value="<?php echo $empresa['user_direccion']?>" name="TxtDireccion" class="form-control" id="inputDireccion" placeholder="Calle 0 # 0 - 0">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" class="btn btn-primary w-75">Guardar</button>
+                        <button type="submit" value="CompletarRegistro" class="btn btn-primary w-75">Guardar</button>
                     </div>
                     <div class="form-group col-2">
                         <button type="submit" class="btn btn-primary w-75">Actualizar</button>

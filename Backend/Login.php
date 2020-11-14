@@ -1,7 +1,7 @@
 <?php
-        include 'conexion.php';
+        include_once 'conexion.php';
         
-        session_start();
+        /*session_start();
 
         if(isset($_GET['cerrar_sesion'])){
             session_unset();
@@ -11,8 +11,8 @@
         }
 
         if(isset($_SESSION['rol'])){
-            header('location: ../frontend/Frm_Home.php');
-        }
+            header('location: ../frontend/Frm_InfoEmpresa.php');
+        }*/
 
         if(isset($_POST['TxtUsuario']) && isset($_POST['TxtPassword'])){
             $usuario = $_POST['TxtUsuario'];
@@ -21,26 +21,20 @@
             $db = new Database();
             $conexion = $db->connect();
 
-            $consulta = $conexion->prepare ("SELECT * FROM tbl_usuarios WHERE user_pkUsuario = :usuario and user_contraseña = :password");
+            $consulta = $conexion->prepare ("SELECT * FROM tbl_usuarios WHERE user_correo = :usuario and user_password = :password");
             $consulta->execute(['usuario' => $usuario, 'password' => $password]);
 
             $row = $consulta->fetch(PDO::FETCH_NUM);
             if($row == true){
                 //validar rol
-                $rol = $row[3];
+                $rol = $row[1];
                 $_SESSION['rol'] = $rol;
-
-                switch($_SESSION['rol']){
-                    case 1 :
-                        header('location: ../frontend/Frm_Home.php');
-                    break;
-                    
-                    case 2;
-                    header('location: ../frontend/Frm_Home.php');
-                    break; 
-    
-                    default:
+                if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
+                    header('location: ../frontend/Frm_InfoEstudiante.php');
+                }else{
+                    header('location: ../frontend/Frm_InfoEmpresa.php');
                 }
+                
             }else{
                 //No existe usuario
                 echo '

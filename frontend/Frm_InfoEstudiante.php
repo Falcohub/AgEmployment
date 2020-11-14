@@ -1,58 +1,81 @@
-<?php include('vistas/HeaderEstudiante.php') ?>
+<?php
+    include_once '../backend/conexion.php';
+    
+    session_start();
+    
+    if(!isset($_SESSION['rol'])){
+        header('location: Frm_Login.php');
+    }else {
+        if ($_SESSION['rol'] != 'CC') {
+            header('location: Frm_Login.php');
+        }
+    }
+    //Establecer conexion
+    $db = new Database();
+    $conexion = $db->connect();
+    //Consulta para obtener datos
+    $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['documentoEst']}")->fetch(PDO::FETCH_ASSOC);
+
+    include_once 'vistas/HeaderEstudiante.php';
+    ?>
 
 <div class="content mt-0 mb-5">
-    <div class="shadow mp-3 mb-3 bg-white rounded"> 
-            <h3 class="card-title text-center">Perfil estudiante</h3>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <h3 class="card-title text-center">Perfil estudiante</h3>
         <div class="card-body">
-           <form>
-                 <div class="form-row">
+            <form action="../backend/InfoEstudiante.php" method="POST">
+                <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputEmail4">Documento</label>
-                        <input type="email" name="txtNombre" class="form-control" id="nombre">
+                        <input type="text" value="<?php echo $estudiante['user_pkid'];?>" name="TxtDocumento" class="form-control" id="nombre" placeholder="No Documento">
                     </div>
                     <div class="form-group col-md-1">
                         <label for="SelectMunicipio">Tipo</label>
-                        <select id="inputMunicipio" name="txtSexo" class="form-control">
+                        <select id="inputMunicipio" value="<?php echo $estudiante['user_ddi'];?>" name="Cbx_ddi" class="form-control">
                             <option selected>CC</option>
                             <option>TI</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputEmail4">Nombre</label>
-                        <input type="email" name="txtNombre" class="form-control" id="nombre">
+                        <input type="text" value="<?php echo $estudiante['user_nombres'];?>" name="TxtNombre" class="form-control" id="nombre" placeholder="Nombres">
                     </div>
-                    
+
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Apellido</label>
-                        <input type="text" name="txtApellido" class="form-control" id="apellidos">
+                        <input type="text" value="<?php echo $estudiante['user_apellidos'];?>" name="TxtApellido" class="form-control" id="apellidos" placeholder="Apellidos">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="SelectMunicipio">Sexo</label>
-                        <select id="inputMunicipio" name="txtSexo" class="form-control">
+                        <select id="inputMunicipio" value="<?php echo $estudiante['user_sexo'];?>" name="CbxSexo" class="form-control">
                             <option selected>Seleccione sexo...</option>
-                            <option>hombre</option>
-                            <option>mujer</option>
+                            <option>Hombre</option>
+                            <option>Mujer</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Contacto</label>
-                        <input type="text" name="txtContacto" class="form-control" id="contacto">
+                        <input type="text" value="<?php echo $estudiante['user_contacto'];?>" name="TxtContacto" class="form-control" id="contacto" placeholder="Contacto">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputCorreo">Correo</label>
-                        <input type="email" name="txtCorreo" class="form-control" id="inputCorreo" placeholder="empresa@mail.com">
+                        <input type="email"  value="<?php echo $estudiante['user_correo'];?>" name="TxtCorreo" class="form-control" id="inputCorreo" placeholder="estudiante@email.com">
                     </div>
                 </div>
                 <div class="form-row">
-                <div class="form-group col-md-3">
-                        <label for="SelectMunicipio">Departamento</label>
-                        <select id="inputMunicipio" name="txtDepartamento" class="form-control">
+                    <div class="form-group col-md-3">
+                        <label for="inputAddress">Departamento</label>
+                        <input type="text" value="<?php echo $estudiante['user_dpto'];?>" name="TxtDpto" class="form-control" id="direccion" placeholder="Departamento">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="SelectMunicipio">Ciudad</label>
+                        <select id="inputMunicipio" value="<?php echo $estudiante['user_ciudad'];?>" name="CbxCiudad" class="form-control">
                             <option selected>Selecione municipio...</option>
                             <option>Chigorodo</option>
                             <option>Carepa</option>
-                            <option>Apartado</option>
+                            <option>Apartadó</option>
                             <option>Turbo</option>
                             <option>Necocli</option>
                             <option>Monteria</option>
@@ -61,25 +84,21 @@
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputAddress">Ciudad</label>
-                        <input type="text" name="txtCiudad" class="form-control" id="direccion" placeholder="">
-                    </div>
-                    <div class="form-group col-md-3">
                         <label for="inputAddress">Direccion</label>
-                        <input type="text" name="txtDireccion" class="form-control" id="direccion" placeholder="">
+                        <input type="text" value="<?php echo $estudiante['user_direccion'];?>" name="TxtDireccion" class="form-control" id="direccion" placeholder="Calle 0 #0 - 0">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="inputAddress2">Fecha de Nacimiento</label>
-                        <input type="date" name="txtFecha" class="form-control col-12" id="fecha_nac" placeholder="Apartment, studio, or floor">
+                        <input type="date" value="<?php echo $estudiante['user_fechaNac'];?>" name="TxtFechaNac" class="form-control col-12" id="fecha_nac">
                     </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="fas fa-pencil-alt prefix">Descripcion del perfil</label>
-                    <textarea id="descripcion_perfil" name="txtDescripcion" class="md-textarea form-control"></textarea>
+                    <textarea id="descripcion_perfil" name="TxtPerfil" class="md-textarea form-control"><?php echo $estudiante['user_perfil'];?></textarea>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" class="btn btn-success border-dark">Guardar perfil</button>
+                        <button type="submit" value="GuardarEstudiante" class="btn btn-success">Guardar perfil</button>
                     </div>
                     <div class="form-group col-2">
                         <button type="submit" class="btn btn-success border-dark">Actualizar perfil</button>
@@ -87,11 +106,13 @@
                 </div>
             </form>
         </div>
-
     </div>
 
-    <div class="shadow p-1 mb-4 bg-white rounded">  
-            <h3 class="card-title text-center">Experiencia laboral</h3>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+    <div>
+        <h3 class="card-title text-center">Experiencia laboral</h3>
+
+    </div>    
         <div class="card-body">
             <form>
                 <div class="form-row">
@@ -130,8 +151,8 @@
         </div>
     </div>
 
-    <div class="shadow p-1 mb-5 bg-white rounded">
-            <h3 class="card-title text-center">Estudios realizados</h3>
+    <div class="shadow p-3 mb-5 bg-white rounded">
+        <h3 class="card-title text-center">Estudios realizados</h3>
         <div class="card-body">
             <form>
                 <div class="form-row">
@@ -167,14 +188,6 @@
     </div>
 </div>
 </body>
-
-<footer>
-    <div class="container">
-        <div class="row"></div>
-        <hr>
-        <p class="copyright">PractiApp 2020</p>
-    </div>
-</footer>
 
 <script src="js/PanelEmpresa.js"></script>
 
