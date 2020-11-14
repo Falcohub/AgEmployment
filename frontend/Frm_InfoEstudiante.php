@@ -51,8 +51,8 @@
                         <label for="SelectMunicipio">Sexo</label>
                         <select id="inputMunicipio" value="<?php echo $estudiante['user_sexo'];?>" name="CbxSexo" class="form-control">
                             <option selected>Seleccione sexo...</option>
-                            <option>Hombre</option>
-                            <option>Mujer</option>
+                            <option>Masculino</option>
+                            <option>Femenino</option>
                         </select>
                     </div>
                     <div class="form-group col-md-4">
@@ -98,10 +98,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" value="GuardarEstudiante" class="btn btn-success">Guardar perfil</button>
+                        <button type="submit" value="GuardarEstudiante" class="btn btn-success">Guardar</button>
                     </div>
                     <div class="form-group col-2">
-                        <button type="submit" class="btn btn-success border-dark">Actualizar perfil</button>
+                        <button type="submit" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>
@@ -114,37 +114,37 @@
 
     </div>    
         <div class="card-body">
-            <form>
+            <form action="../backend/InfoEstudiante.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nombre de la anterior empresas</label>
-                        <input type="email" class="form-control" id="nombre_Empre_anterior">
+                        <input type="text" class="form-control" name="TxtNombreEmpresa" id="nombre_Empre_anterior">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="text">Cargo que ocupaba en la empresas</label>
-                        <textarea id="cargo" class="md-textarea form-control"></textarea>
+                        <textarea id="cargo"  name="TxtCargo"  class="md-textarea form-control"></textarea>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputAddress">Contacto de la empresa</label>
-                        <input type="text" class="form-control" id="contacto_empresa" placeholder="1234 Main St">
+                        <input type="text" class="form-control" name="TxtContactoEmpre"  id="contacto_empresa" placeholder="1234 Main St">
                     </div>
                     <div class="form-group">
                         <label for="inputAddress2">Fecha de inicio de contracto</label>
-                        <input type="date" class="form-control col-12" id="fecha_inicio" placeholder="Apartment, studio, or floor">
+                        <input type="date" class="form-control col-12" name="TxtFechaInicio"  id="fecha_inicio" >
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputAddress2">Fecha de finalizacion</label>
-                    <input type="date" class="form-control col-6" id="fecha_final" placeholder="Apartment, studio, or floor">
+                    <input type="date" class="form-control col-6" name="TxtFechaFin"  id="fecha_final">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-3">
-                        <button type="submit" class="btn btn-success">Guardar Experiencia</button>
+                        <button type="submit" value="GuardarExp" class="btn btn-success">Guardar</button>
                     </div>
                     <div class="form-group col-4">
-                        <button type="submit" class="btn btn-success ">Actualizar experiencia</button>
+                        <button type="submit" class="btn btn-success ">Actualizar</button>
                     </div>
                 </div>
             </form>
