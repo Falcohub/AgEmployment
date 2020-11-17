@@ -4,7 +4,7 @@ include_once 'conexion.php';
 $db = new Database();
 $conexion = $db->connect();
 
-$consulta = $conexion->prepare("SELECT * FROM tbl_usuarios WHERE user_correo = 'obeimar@sanchez' and user_password = '001'");
+$consulta = $conexion->prepare("SELECT * FROM tbl_usuarios WHERE user_correo = 'lefa@gmail.com' and user_password = '001'");
 $consulta->execute();
 
 $row = $consulta->fetch(PDO::FETCH_NUM);

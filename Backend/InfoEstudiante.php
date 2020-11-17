@@ -15,18 +15,42 @@
     $direccion = $_POST['TxtDireccion'];
     $fechaNac = $_POST['TxtFechaNac'];
     $perfil = $_POST['TxtPerfil'];
-    //Experiencia Laboral
-   
-    //Establecer conexión
-    $db = new Database();
-    $conexion = $db->connect();
-        
-        //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil' WHERE user_pkid = {$_SESSION['documentoEst']}");
-        
-        if ($ActualizarEstudiante->execute()){
-            $_SESSION['documentoEst'] = $documento;
-            header('location: ../frontend/Frm_InfoEstudiante.php');
-        }
 
+    if (isset($_SESSION['idRegistroEst'])) {
+
+        //Establecer conexión
+        $db = new Database();
+        $conexion = $db->connect();
+
+        //----- Actualizar datos para completar registro
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil' WHERE user_pkid = {$_SESSION['idRegistroEst']}");
+
+            if ($ActualizarEstudiante->execute()) {
+                $_SESSION['idRegistroEst'] = $documento;
+                echo '
+                    <script>
+                        alert("Datos actualizado correctamente.");
+                        window.location = "../frontend/Frm_Infoestudiante.php";
+                    </script>
+                    ';
+            }
+    }else if (isset($_SESSION['idLogin'])) {
+        
+        //Establecer conexión
+        $db = new Database();
+        $conexion = $db->connect();
+    
+        //----- Actualizar datos para completar registro
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil' WHERE user_pkid = {$_SESSION['idLogin']}");
+    
+            if ($ActualizarEstudiante->execute()) {
+                $_SESSION['idLogin'] = $documento;
+                echo '
+                    <script>
+                        alert("Datos actualizado correctamente.");
+                        window.location = "../frontend/Frm_Infoestudiante.php";
+                    </script>
+                    ';
+            }
+    }
 ?>

@@ -10,11 +10,11 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-            <form action="" class="sign-in-form">
+            <form action="../backend/RecuperarPassword.php" class="sign-in-form" method="POST">
                 <h2 class="tittle">Ingresar correo electronico</h2>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="ejemplo@email.com">
+                    <input type="email" name="TxtCorreo" placeholder="ejemplo@email.com">
                 </div>
                 <input type="submit" value="Enviar" class="btn solid">
                 
@@ -27,7 +27,7 @@
             <div class="panel left-panel">
                 <div class="content">
                     <h3>¿Olvidaste tu contraseña?</h3>
-                    <p>Ingresa tu correo electronico para recuperar la contraseña.
+                    <p>Ingresa el correo electronico para recuperar la contraseña.
                     </p>
                 </div>
                 

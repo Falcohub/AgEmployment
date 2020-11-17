@@ -1,4 +1,10 @@
+<?php
+    session_start();
 
+    if(isset($_SESSION['rol'])){
+        header('location: ../frontend/Frm_InfoEstudiante.php');
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="es">

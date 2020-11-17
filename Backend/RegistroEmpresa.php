@@ -60,7 +60,7 @@
         if($pst->execute()){
             //validar rol
             $_SESSION['rol'] = 'NIT';
-            $_SESSION['documento'] = $NIT;
+            $_SESSION['idRegistroEmp'] = $NIT;
             header('location: ../frontend/Frm_InfoEmpresa.php');
         }else{
             //----- Cargar la pagina para completar registro -----

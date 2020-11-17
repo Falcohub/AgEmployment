@@ -1,7 +1,7 @@
 <?php
         include_once 'conexion.php';
         
-        /*session_start();
+        session_start();
 
         if(isset($_GET['cerrar_sesion'])){
             session_unset();
@@ -9,10 +9,6 @@
             session_destroy();
             header('location: ../frontend/Frm_Login.php');
         }
-
-        if(isset($_SESSION['rol'])){
-            header('location: ../frontend/Frm_InfoEmpresa.php');
-        }*/
 
         if(isset($_POST['TxtUsuario']) && isset($_POST['TxtPassword'])){
             $usuario = $_POST['TxtUsuario'];
@@ -27,14 +23,15 @@
             $row = $consulta->fetch(PDO::FETCH_NUM);
             if($row == true){
                 //validar rol
+                $IDLogin = $row[0];
                 $rol = $row[1];
+                $_SESSION['idLogin'] = $IDLogin;
                 $_SESSION['rol'] = $rol;
                 if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
                     header('location: ../frontend/Frm_InfoEstudiante.php');
                 }else{
                     header('location: ../frontend/Frm_InfoEmpresa.php');
                 }
-                
             }else{
                 //No existe usuario
                 echo '

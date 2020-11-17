@@ -24,13 +24,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="Frm_Home.php">INICIO</a>
+                        <a class="nav-link" href="Frm_Home.php">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Frm_Ofertas.php">OFERTAS LABORALES</a>
+                        <a class="nav-link" href="Frm_Ofertas.php">Ofertas laborales</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#social-media">CONTACTOS</a>
+                        <a class="nav-link" href="#social-media">Contactos</a>
                     </li>
                     <li class="nav">
                         <div class="btn-group">
@@ -40,7 +40,9 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <button class="dropdown-item" type="button">Cerrar sesion</button>
+                                <form action="../backend/CerrarSesion.php">
+                                    <button type="submit" name="CerrarSesion" class="dropdown-item" type="button">Cerrar sesion</button>
+                                </form>
                             </div>
                         </div>
                     </li>

@@ -11,7 +11,7 @@
     $nombres = $_POST['TxtNombres'];
     $apellidos = $_POST['TxtApellidos'];
     $correo = $_POST['TxtCorreo'];
-    $password = sha1($_POST['TxtDocumento']);
+    $password = sha1git($_POST['TxtDocumento']);
     
     if(isset($_POST['TxtDocumento']) && isset($_POST['TxtNombres']) && isset($_POST['TxtApellidos']) && isset($_POST['TxtCorreo'])){
 
@@ -21,11 +21,11 @@
         $resultado = $validar_id->fetchAll(PDO::FETCH_ASSOC);
         if ($resultado){
             echo '
-            <script>
-            alert("Este documento ya esta registrado.");
-            window.location = "../frontend/Frm_Registro.php";
-            </script>
-            ';
+                <script>
+                    alert("Este documento ya esta registrado.");
+                    window.location = "../frontend/Frm_Registro.php";
+                </script>
+                ';
             exit();
         }
 
@@ -35,11 +35,11 @@
                 
         if ($resultado2){
             echo '
-            <script>
-            alert("Este correo ya esta registrado.");
-            window.location = "../frontend/Frm_Registro.php";
-            </script>
-            ';
+                <script>
+                    alert("Este correo ya esta registrado.");
+                    window.location = "../frontend/Frm_Registro.php";
+                </script>
+                ';
             exit();
         }else{
         //----- Insertar o guardar datos en la tabla usuarios
@@ -47,7 +47,7 @@
         
         if ($pst->execute()){
             $_SESSION['rol'] = 'CC';
-            $_SESSION['documentoEst'] = $documento;
+            $_SESSION['idRegistroEst'] = $documento;
             header('location: ../frontend/Frm_InfoEstudiante.php');
         }else {
             //----- Cargar la pagina para completar registro -----
