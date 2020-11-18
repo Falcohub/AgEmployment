@@ -1,27 +1,53 @@
 <?php
-    include_once 'conexion.php';
+include_once 'conexion.php';
 
-    session_start();
+session_start();
 
-    $NIT = $_POST['TxtNIT'];
-    $nombreEmpresa = $_POST['TxtNombreEmpresa'];
-    $contacto = $_POST['TxtContacto'];
-    $correo = $_POST['TxtCorreo'];
-    $dpto = $_POST['TxtDpto'];
-    $ciudad = $_POST['CbxMunicipio'];
-    $direccion = $_POST['TxtDireccion'];
-        
+$NIT = $_POST['TxtNIT'];
+$nombreEmpresa = $_POST['TxtNombreEmpresa'];
+$contacto = $_POST['TxtContacto'];
+$correo = $_POST['TxtCorreo'];
+$dpto = $_POST['TxtDpto'];
+$ciudad = $_POST['CbxMunicipio'];
+$direccion = $_POST['TxtDireccion'];
+
+if (isset($_SESSION['idRegistroEmp'])) {
+
     //Establecer conexión
     $db = new Database();
     $conexion = $db->connect();
-        
-        //----- Actualizar datos para completar registro
-        $ActualizarEmpresa = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$NIT', user_nombres = '$nombreEmpresa', 
-        user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', 
-        user_direccion = '$direccion' WHERE user_pkid = {$_SESSION['documento']}");
-        
-        if ($ActualizarEmpresa->execute()){
-            $_SESSION['documento'] = $NIT;
-            header('location: ../frontend/Frm_InfoEmpresa.php');
-        }
-?>
+
+    //----- Actualizar datos para completar registro
+    $ActualizarEmpresa = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$NIT', user_nombres = '$nombreEmpresa', 
+            user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', 
+            user_direccion = '$direccion' WHERE user_pkid = {$_SESSION['idRegistroEmp']}");
+
+    if ($ActualizarEmpresa->execute()) {
+        $_SESSION['idRegistroEmp'] = $NIT;
+        echo '
+        <script>
+            alert("Datos actualizado correctamente.");
+            window.location = "../frontend/Frm_InfoEmpresa.php";
+        </script>
+        ';
+    }
+} else if (isset($_SESSION['idLogin'])) {
+
+    //Establecer conexión
+    $db = new Database();
+    $conexion = $db->connect();
+
+    $ActualizarEmpresa = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$NIT', user_nombres = '$nombreEmpresa', 
+            user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', 
+            user_direccion = '$direccion' WHERE user_pkid = {$_SESSION['idLogin']}");
+
+    if ($ActualizarEmpresa->execute()) {
+        $_SESSION['idLogin'] = $NIT;
+        echo '
+        <script>
+            alert("Datos actualizado correctamente.");
+            window.location = "../frontend/Frm_InfoEmpresa.php";
+        </script>
+        ';
+    }
+}

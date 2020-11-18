@@ -68,12 +68,12 @@
 
         <div class="panels-container">
             <div class="panel left-panel">
-                <!--<div class="content">
+                <div class="content">
                     <h3>Registrar empresa</h3>
                     <p>Publica tus ofertas laborales registrando tu cuenta como empresa.
                     </p>
                     <button class="btn transparent" id="sign-up-btn">Registrarse</button>
-                </div>-->
+                </div>
 
                 <img src="img/good.svg" class="image" alt="">
             </div>

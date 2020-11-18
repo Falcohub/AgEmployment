@@ -11,7 +11,7 @@
     $nombres = $_POST['TxtNombres'];
     $apellidos = $_POST['TxtApellidos'];
     $correo = $_POST['TxtCorreo'];
-    $password = sha1git($_POST['TxtDocumento']);
+    $password = sha1($_POST['TxtDocumento']);
     
     if(isset($_POST['TxtDocumento']) && isset($_POST['TxtNombres']) && isset($_POST['TxtApellidos']) && isset($_POST['TxtCorreo'])){
 

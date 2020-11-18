@@ -5,39 +5,42 @@
         <h3 class="card-title text-center">Postulaciones</h3>
         <div class="card-body">
             <form>
+            <?php
+                $conexion=new PDO("mysql:host=localhost;dbname=db_agempleo1","root","");
+
+                $busqueda=$conexion->query("Select * from tbl_postulaciones");
+                /*Almacenamos el resultado de fetchAll en una variable*/
+                $arrDatos=$busqueda->fetchAll(PDO::FETCH_ASSOC);
+
+                ?>
+
                 <table class="table">
                     <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">N°</th>
-                            <th scope="col">Postulado</th>
-                            <th scope="col">Empleo</th>
-                            <th scope="col">Fecha</th>
-                            <th scope="col">Perfil</th>
-                        </tr>
+                       <tr> 
+                            <th class="bg-dark" scope="col">id</th>
+                            <th class="bg-dark" scope="col">Id usuario</th>
+                            <th class="bg-dark" scope="col">Id Empleo</th>
+                            <th class="bg-dark" scope="col">Estado</th>
+                            <th class="bg-dark" scope="col">Fecha</th>
+                       </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>perfil</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@perfil</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            <td>@perfil</td>
-                        </tr>
-                    </tbody>
+
+                        <?php
+                    
+                /* var_dump($arrDatos);*/
+                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
+                foreach ($arrDatos as $muestra) {
+                    echo '<tr>';
+
+                    echo '<td >' . $muestra['pos_pkid'] . '</td>';
+                    echo '<td >' . $muestra['pos_fkUsuario'] . '</td>';
+                    echo '<td >' . $muestra['pos_fkEmpleo'] . '</td>';
+                    echo '<td >' . $muestra['pos_Estado'] . '</td>';
+                    echo '<td >' . $muestra['pos_fecha'] . '</td>';
+                }
+                ?>
+
+                </table>
                 </table>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
