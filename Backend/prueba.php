@@ -1,22 +1,12 @@
 <?php
-include_once 'conexion.php';
+    include_once 'conexion.php';
 
-$db = new Database();
-$conexion = $db->connect();
+    session_start();
+    $db = new Database();
+    $conexion = $db->connect();
 
-$consulta = $conexion->prepare("SELECT * FROM tbl_usuarios WHERE user_correo = 'lefa@gmail.com' and user_password = '001'");
-$consulta->execute();
+    $estudiante = $conexion->query("SELECT * FROM tbl_usuarios WHERE user_pkid = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
 
-$row = $consulta->fetch(PDO::FETCH_NUM);
-if ($row == true) {
-    //validar rol
-    $rol = $row[1];
+    //$experiencia = $conexion->query("SELECT * FROM tbl_explaboral WHERE exp_fkUsuario = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
 
-    $_SESSION['rol'] = $rol;
-
-    if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
-        header('location: ../frontend/Frm_InfoEstudiante.php');
-    } else
-        header('location: ../frontend/Frm_InfoEmpresa.php');
-
-}
+        var_dump($estudiante);

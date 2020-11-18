@@ -3,17 +3,6 @@
     
     session_start();
 
-        /*if(isset($_GET['cerrar_sesion'])){
-            session_unset();
-            //Destroy the session
-            session_destroy();
-            header('location: ../frontend/Frm_Login.php');
-        }
-
-        if(isset($_SESSION['rol'])){
-            header('location: ../frontend/Frm_Home.php');
-        }*/
-
     //Establecer conexión
     $db = new Database();
     $conexion = $db->connect();

@@ -2,6 +2,10 @@
     include_once 'conexion.php';
 
     session_start();
+    
+    //Establecer conexión
+    $db = new Database();
+    $conexion = $db->connect();
 
     $documento = $_POST['TxtDocumento'];
     $ddi = $_POST['Cbx_ddi'];
@@ -16,11 +20,8 @@
     $fechaNac = $_POST['TxtFechaNac'];
     $perfil = $_POST['TxtPerfil'];
 
-    if (isset($_SESSION['idRegistroEst'])) {
 
-        //Establecer conexión
-        $db = new Database();
-        $conexion = $db->connect();
+    if (isset($_SESSION['idRegistroEst'])) {       
 
         //----- Actualizar datos para completar registro
         $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil' WHERE user_pkid = {$_SESSION['idRegistroEst']}");
@@ -35,10 +36,6 @@
                     ';
             }
     }else if (isset($_SESSION['idLogin'])) {
-        
-        //Establecer conexión
-        $db = new Database();
-        $conexion = $db->connect();
     
         //----- Actualizar datos para completar registro
         $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil' WHERE user_pkid = {$_SESSION['idLogin']}");

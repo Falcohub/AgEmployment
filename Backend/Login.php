@@ -7,12 +7,13 @@
             session_unset();
             //Destroy the session
             session_destroy();
-            header('location: ../frontend/Frm_Login.php');
+            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+            exit;
         }
 
         if(isset($_POST['TxtUsuario']) && isset($_POST['TxtPassword'])){
             $usuario = $_POST['TxtUsuario'];
-            $password = $_POST['TxtPassword'];
+            $password = sha1($_POST['TxtPassword']);
             
             $db = new Database();
             $conexion = $db->connect();
@@ -28,9 +29,11 @@
                 $_SESSION['idLogin'] = $IDLogin;
                 $_SESSION['rol'] = $rol;
                 if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
-                    header('location: ../frontend/Frm_InfoEstudiante.php');
+                    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEstudiante.php">';
+                    //header('location: ../frontend/Frm_InfoEstudiante.php');
                 }else{
-                    header('location: ../frontend/Frm_InfoEmpresa.php');
+                    echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEmpresa.php">';
+                    //header('location: ../frontend/Frm_InfoEmpresa.php');
                 }
             }else{
                 //No existe usuario
