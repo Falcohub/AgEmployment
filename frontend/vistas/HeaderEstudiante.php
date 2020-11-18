@@ -60,6 +60,8 @@
         <div class="mobile_nav_items">
             <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
             <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
+            <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
+            <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
             <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
         </div>
     </div>
@@ -71,6 +73,8 @@
         </div>
         <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
         <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
+        <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
+        <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
         <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
     <!--sidebar end-->
