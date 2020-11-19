@@ -1,24 +1,55 @@
-<?php include('vistas/HeaderEmpresa.php') ?>
+<?php 
+include_once '../backend/conexion.php';
+
+session_start();
+
+if (!isset($_SESSION['rol'])) {
+    header('location: Frm_Login.php');
+} else {
+    if ($_SESSION['rol'] != 'NIT') {
+        header('location: Frm_Login.php');
+    }
+}
+
+if (isset($_SESSION['idRegistroEmp'])) {
+
+    //Establecer conexion
+    $db = new Database();
+    $conexion = $db->connect();
+
+    //Consulta para obtener datos
+    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+
+}else if (isset($_SESSION['idLogin'])) {
+
+    //Establecer conexion
+    $db = new Database();
+    $conexion = $db->connect();
+
+    //Consulta para obtener datos
+    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+}
+include('vistas/HeaderEmpresa.php') ?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
             <h3 class="card-title text-center">Información de cuenta</h3>
         <div class="card-body">
-            <form>
+            <form >
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputUser">Usuario</label>
-                        <input type="text" class="form-control" id="inputUser" placeholder="Correo electronico">
+                        <input type="text" name="txtUsuario"" value="<?php echo $empresas['user_correo']; ?>" class="form-control" id="inputUser" placeholder="Correo electronico">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Contraseña</label>
-                        <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        <input type="text" name="txtContraseña" value="<?php echo $empresas['user_password']; ?>" class="form-control" id="inputPassword" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputAddress2">Fecha</label>
-                        <input type="date" class="form-control col-12" id="fecha">
+                        <input type="date" name="txtFecha" value="<?php echo $empresas['user_fechaUser']; ?>" class="form-control col-12" id="fecha">
                     </div>
                 </div>
                 <div class="form-row">

@@ -37,34 +37,26 @@ include('vistas/HeaderEstudiante.php') ?>
             <h3 class="card-title">Informacion de cuenta</h3>
         </div>
         <div class="card-body ">
-            <form>
+            <form action="../backend/ActualizarInfoEst.php" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputEmail4">Nombre</label>
-                        <input type="email" value=" <?php echo $cuenta['user_nombres']; ?>" class="form-control" id="nombre">
-                    </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Usuario</label>
-                        <input type="text" value=" <?php echo $cuenta['user_correo']; ?>" class="form-control" id="usuario">
+                        <input type="text" name="txtuser" value=" <?php echo $cuenta['user_correo']; ?>" class="form-control" id="usuario">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputAddress">Contraseña</label>
+                        <input type="text" name="txtpass" value=" <?php echo $cuenta['user_password']; ?>" class="form-control" id="contraseña" placeholder="*****************">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputAddress">Contraseña</label>
-                        <input type="text" value=" <?php echo $cuenta['user_password']; ?>" class="form-control" id="contraseña" placeholder="*****************">
-                    </div>
                     <div class="form-group">
                         <label for="inputAddress2">Fecha</label>
-                        <input type="date" value=" <?php echo $cuenta['user_fechaUser']; ?>" class="form-control col-12" id="fecha" placeholder="Apartment, studio, or floor">
+                        <input type="date" name="txtdate" value=" <?php echo $cuenta['user_fechaUser']; ?>" class="form-control col-12" id="fecha" placeholder="Apartment, studio, or floor">
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Correo</label>
-                    <input type="text" value=" <?php echo $cuenta['user_correo']; ?>" class="form-control" id="correo" placeholder="exampl@.com">
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" class="btn btn-primary border-dark">Actualizar perfil</button>
+                        <button type="submit" name="Actualizar" class="btn btn-primary border-dark">Actualizar perfil</button>
                     </div>
                 </div>
             </form>
