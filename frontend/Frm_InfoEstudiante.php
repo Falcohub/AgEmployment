@@ -4,26 +4,24 @@
     session_start();
 
     if (!isset($_SESSION['rol'])) {
-        header('location: Frm_Login.php');
+        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+        exit();
     } else {
-        if ($_SESSION['rol'] != 'CC' && $_SESSION['rol'] != 'TI') {
-            header('location: Frm_Login.php');
+        if ($_SESSION['rol'] == 'NIT') {
+            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
+            exit();
         }
     }
 
-    if (isset($_SESSION['idRegistroEst'])) {
+    //Establecer conexion
+    $db = new Database();
+    $conexion = $db->connect();
 
-        //Establecer conexion
-        $db = new Database();
-        $conexion = $db->connect();
+    if (isset($_SESSION['idRegistroEst'])) {
 
         //Consulta para obtener datos
         $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
     } else if (isset($_SESSION['idLogin'])) {
-
-        //Establecer conexion
-        $db = new Database();
-        $conexion = $db->connect();
 
         //Consulta para obtener datos
         $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
@@ -62,10 +60,13 @@
                 <div class="form-row">
                     <div class="form-group col-md-2">
                         <label for="SelectSexo">Sexo</label>
-                        <select id="inputSexo" value="<?php echo $estudiante['user_sexo']; ?>" name="CbxSexo" class="form-control">
-                            <option selected>Seleccionar...</option>
-                            <option>Masculino</option>
-                            <option>Femenino</option>
+                        <select id="inputSexo" name="CbxSexo" class="form-control">
+                        <?php
+                            foreach($categoria as $categorias)
+                            {
+                                echo '<option value="'.$categorias["Id_Categoria"].'">'.$categorias["DescripcionCat"].'</option>';
+                            }
+                        ?>
                         </select>
                     </div>
                     <div class="form-group col-md-5">
@@ -116,9 +117,6 @@
                 <div class="form-row">
                     <div class="form-group col-2">
                         <button type="submit" value="GuardarEstudiante" class="btn btn-success">Guardar</button>
-                    </div>
-                    <div class="form-group col-2">
-                        <button type="submit" value="ActualizarEstudiante" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>

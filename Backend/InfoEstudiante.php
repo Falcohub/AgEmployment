@@ -30,7 +30,7 @@
                 $_SESSION['idRegistroEst'] = $documento;
                 echo '
                     <script>
-                        alert("Datos actualizado correctamente.");
+                        alert("Datos guardados correctamente.");
                         window.location = "../frontend/Frm_Infoestudiante.php";
                     </script>
                     ';
@@ -44,7 +44,7 @@
                 $_SESSION['idLogin'] = $documento;
                 echo '
                     <script>
-                        alert("Datos actualizado correctamente.");
+                        alert("Datos guardados correctamente.");
                         window.location = "../frontend/Frm_Infoestudiante.php";
                     </script>
                     ';

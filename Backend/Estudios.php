@@ -23,7 +23,7 @@
             echo '
                 <script>
                     alert("Se guardo correctamente.");
-                    window.location = "../frontend/Frm_InfoEstudiante.php";
+                    window.location = "../frontend/Frm_Estudios.php";
                 </script>
                 ';
         }
@@ -37,7 +37,7 @@
                 echo '
                     <script>
                         alert("Se guardo correctamente.");
-                        window.location = "../frontend/Frm_InfoEstudiante.php";
+                        window.location = "../frontend/Frm_Estudios.php";
                     </script>
                     ';
             }

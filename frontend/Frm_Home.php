@@ -1,4 +1,23 @@
-<?php include ('vistas/Header.php') ?>
+<?php 
+
+  session_start();
+
+  if (!isset($_SESSION['rol'])) {
+    include_once 'vistas/Header.php';
+  }
+
+  
+  if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
+
+
+
+
+    //echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
+    
+  }else if ($_SESSION['rol'] == 'NIT') {
+    include_once 'vistas/headerlogempresa.php';
+  }
+?>
 
   <!---------------------BANNER SECTION------------------------------>
 
@@ -96,4 +115,4 @@
   </section>
 
   <!---------------------Footer Section-------------------------->
-  <?php include ('vistas/Footer.php') ?>
+  <?php include_once 'vistas/Footer.php'; ?>

@@ -33,9 +33,7 @@ include('vistas/HeaderEstudiante.php') ?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
-        <div class="card-header text-center">
-            <h3 class="card-title">Informacion de cuenta</h3>
-        </div>
+        <h3 class="card-title text-center">Informacion de cuenta</h3>
         <div class="card-body ">
             <form action="../backend/ActualizarInfoEst.php" method="POST">
                 <div class="form-row">
@@ -45,18 +43,18 @@ include('vistas/HeaderEstudiante.php') ?>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputAddress">Contraseña</label>
-                        <input type="text" name="txtpass" value=" <?php echo $cuenta['user_password']; ?>" class="form-control" id="contraseña" placeholder="*****************">
+                        <input type="password" name="txtpass" value=" <?php echo $cuenta['user_password']; ?>" class="form-control" id="contraseña" placeholder="Ingrese contraseña">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="inputAddress2">Fecha</label>
-                        <input type="date" name="txtdate" value=" <?php echo $cuenta['user_fechaUser']; ?>" class="form-control col-12" id="fecha" placeholder="Apartment, studio, or floor">
+                        <input type="date" name="txtdate" value=" <?php echo $cuenta['user_fechaUser']; ?>" class="form-control col-12" id="fecha">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" name="Actualizar" class="btn btn-primary border-dark">Actualizar perfil</button>
+                        <button type="submit" name="Actualizar" class="btn btn-success">Actualizar perfil</button>
                     </div>
                 </div>
             </form>

@@ -1,35 +1,34 @@
 <?php
-include_once '../backend/conexion.php';
+    include_once '../backend/conexion.php';
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['rol'])) {
-    header('location: Frm_Login.php');
-} else {
-    if ($_SESSION['rol'] != 'CC' && $_SESSION['rol'] != 'TI') {
-        header('location: Frm_Login.php');
+    if (!isset($_SESSION['rol'])) {
+        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+        exit();
+    } else {
+        if ($_SESSION['rol'] == 'NIT') {
+            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
+            exit();
+        }
     }
-}
-
-if (isset($_SESSION['idRegistroEst'])) {
 
     //Establecer conexion
     $db = new Database();
     $conexion = $db->connect();
 
-    //Consulta para obtener datos
-    $estudios = $conexion->query("SELECT * FROM tbl_estudios where est_fkUsuario = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
-} else if (isset($_SESSION['idLogin'])) {
+    if (isset($_SESSION['idRegistroEst'])) {
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
+        //Consulta para obtener datos
+        $estudios = $conexion->query("SELECT * FROM tbl_estudios where est_fkUsuario = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
+        
+    } else if (isset($_SESSION['idLogin'])) {
 
-    //Consulta para obtener datos
-    $estudios = $conexion->query("SELECT * FROM tbl_estudios where est_fkUsuario = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
-}
+        //Consulta para obtener datos
+        $estudios = $conexion->query("SELECT * FROM tbl_estudios where est_fkUsuario = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+    }
 
-include('vistas/HeaderEstudiante.php');
+    include('vistas/HeaderEstudiante.php');
 ?>
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
@@ -57,10 +56,10 @@ include('vistas/HeaderEstudiante.php');
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-3">
+                    <div class="form-group col-2">
                         <button type="submit" value="Guardar" class="btn btn-success">Guardar</button>
                     </div>
-                    <div class="form-group col-4">
+                    <div class="form-group col-2">
                         <button type="" value="actualizar" class="btn btn-success ">Actualizar</button>
                     </div>
                 </div>

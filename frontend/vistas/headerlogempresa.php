@@ -33,51 +33,22 @@
                         <a class="nav-link" href="#social-media">Contactos</a>
                     </li>
                     <li class="nav">
+                    <li class="nav">
                         <div class="btn-group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle fas fa-user-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Opcion
-                            </button>
+                            <button type="button" class="btn btn-secondary dropdown-toggle fas fa-user-edit" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opcion</button>
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <form action="../backend/CerrarSesion.php">
-                                    <button type="submit" name="CerrarSesion" class="dropdown-item" type="button">Cerrar sesion</button>
-                                </form>
+                                <button class="dropdown-item" type="button">Cerrar sesion</button>
                             </div>
                         </div>
+                    </li>
+
                     </li>
                 </ul>
             </div>
         </nav>
     </section>
-
-    <input type="checkbox" id="check">
-    <!--mobile navigation bar start-->
-    <div class="mobile_nav">
-        <div class="nav_bar">
-            <i class="fa fa-bars nav_btn"></i>
-        </div>
-        <div class="mobile_nav_items">
-            <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
-            <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
-            <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
-            <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-            <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
-        </div>
-    </div>
-    <!--mobile navigation bar end-->
-    <!--sidebar start-->
-    <div class="sidebar mt-5">
-        <div class="profile_info">
-            <img src="img/logo.jpeg" class="profile_image" alt="">
-        </div>
-        <a href="Frm_InfoEstudiante.php"><i class="fas fa-user-edit"></i><span>Perfil estudiante</span></a>
-        <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
-        <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
-        <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-        <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
-    </div>
-    <!--sidebar end-->
 
     <!-----------------Smooth Scroll------------------------>
     <script src="js/smooth-scroll.js"></script>
