@@ -28,23 +28,36 @@
 
 <!---------------------- OFERTAS -------------------->
 <section id="services">
-    <div class="container text-center">
+    <div class="container text-center ">
         <div class="row">
-            <div class="col-lg-4" id="row1">
+           <?php 
+           include_once '../backend/conexion.php';
+
+           $db = new Database();
+           $conexion = $db->connect();
+            //$conexion=new PDO("mysql:host=localhost;dbname=db_agempleo1","root","");
+
+            $sentencia = $conexion->prepare("SELECT emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos WHERE emp_fkUsuario");
+            $sentencia->execute();
+            $listaproductos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+
+            <?php foreach ($listaproductos as $producto) { ?>
+            <div class="col-lg-6 shadow p-3 mb-5 bg-white rounded" id="row1">
                 <div class="card">
-                    <div class="card-header">
-                        encabezado
-                    </div>
+                    <div class="card-header text-white bg-secondary"><?php echo $producto['emp_titulo'] ?></div>
                     <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional
-                            content.</p>
+                        <h5 class="card-title"><?php echo $producto['emp_tipoEmpleo'] ?></h5>
+                        <p class="card-text"><?php echo $producto['emp_descripcion'] ?></p>
+                        <p class=""><?php echo $producto['emp_salario'] ?></p>
                         <a href="Frm_OfertasDetalle.php" class="btn btn-primary">ver mas</a>
                     </div>
                 </div>
+                <br>
             </div>
+            <?php } ?>
 
-            <div class="col-lg-4" id="row2">
+            <!-- <div class="col-lg-4" id="row2">
                 <div class="card">
                     <div class="card-header">
                         encabezado
@@ -156,7 +169,7 @@
                         <a href="Frm_OfertasDetalle.php" class="btn btn-primary">ver mas</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </div>
