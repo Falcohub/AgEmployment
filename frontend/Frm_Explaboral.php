@@ -41,33 +41,33 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNombreEmpresa">Nombre de la empresa donde laboro</label>
-                        <input type="text" value=" <?php echo $experiencia['exp_nombreEmpresa']; ?>" class="form-control" name="TxtNombreEmpresa" id="inputNombreEmpresa">
+                        <input type="text" value="<?php echo $experiencia['exp_nombreEmpresa']; ?>" class="form-control" name="TxtNombreEmpresa" id="inputNombreEmpresa">
                     </div>
                     <div class="form-group col-md-6">
                         <label class="text">Cargo que desempeñaba</label>
-                        <input id="inputCargo" value=" <?php echo $experiencia['exp_cargo']; ?>" name="TxtCargo" class="form-control">
+                        <input id="inputCargo" value="<?php echo $experiencia['exp_cargo']; ?>" name="TxtCargo" class="form-control">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-4">
                         <label for="inputContactoEmpresa">Contacto</label>
-                        <input type="text" class="form-control" value=" <?php echo $experiencia['exp_contactoEmpresa']; ?>" name="TxtContacto" id="inputContactoEmpresa">
+                        <input type="text" class="form-control" value="<?php echo $experiencia['exp_contactoEmpresa']; ?>" name="TxtContacto" id="inputContactoEmpresa">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputFechaIniExp">Fecha en que inicio a laborar</label>
-                        <input type="date" class="form-control" value=" <?php echo $experiencia['exp_fechaIni']; ?>" name="TxtFechaInicio" id="inputFechaIniExp">
+                        <input type="date" class="form-control" value="<?php echo $experiencia['exp_fechaIni']; ?>" name="TxtFechaInicio" id="inputFechaIniExp">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputFechaFinExp">Fecha de finalizacion</label>
-                        <input type="date" class="form-control" value=" <?php echo $experiencia['exp_fechaFin']; ?>" name="TxtFechaFin" id="inputFechaFinExp">
+                        <input type="date" class="form-control" value="<?php echo $experiencia['exp_fechaFin']; ?>" name="TxtFechaFin" id="inputFechaFinExp">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" value="Guardar" class="btn btn-success">Guardar</button>
+                        <button type="submit" value="Guardar" name="Guardar" class="btn btn-success">Guardar</button>
                     </div>
                     <div class="form-group col-2">
-                        <button type="submit" value="Actualizar" class="btn btn-success">Actualizar</button>
+                        <button type="submit" value="Actualizar" name="Actualizar" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>

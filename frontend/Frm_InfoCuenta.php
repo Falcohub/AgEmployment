@@ -39,7 +39,7 @@ include('vistas/HeaderEmpresa.php') ?>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputUser">Usuario</label>
-                        <input type="text" name="txtUsuario"" value="<?php echo $empresas['user_correo']; ?>" class="form-control" id="inputUser" placeholder="Correo electronico">
+                        <input type="text" name="txtUsuario" value="<?php echo $empresas['user_correo']; ?>" class="form-control" id="inputUser" placeholder="Correo electronico">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Contraseña</label>
@@ -49,11 +49,11 @@ include('vistas/HeaderEmpresa.php') ?>
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputAddress2">Fecha</label>
-                        <input type="date" name="txtFecha" value="<?php echo $empresas['user_fechaUser']; ?>" class="form-control col-12" id="fecha">
+                        <input type="date" name="txtFecha" value="<?php echo $empresas['user_fechaUser']; ?>" class="form-control" id="fecha">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-2">
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </div>

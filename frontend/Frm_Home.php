@@ -2,9 +2,9 @@
 
   session_start();
 
-  if (!isset($_SESSION['rol'])) {
+  //if (!isset($_SESSION['rol'])) {
     include_once 'vistas/Header.php';
-  }
+  /*}
 
   
   if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
@@ -16,7 +16,7 @@
     
   }else if ($_SESSION['rol'] == 'NIT') {
     include_once 'vistas/headerlogempresa.php';
-  }
+  }*/
 ?>
 
   <!---------------------BANNER SECTION------------------------------>

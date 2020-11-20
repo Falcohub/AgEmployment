@@ -27,6 +27,7 @@ if (isset($_SESSION['idRegistroEmp'])) {
             window.location = "../frontend/Frm_PublicarEmpleo.php";
         </script>
         ';
+        exit();
     }
 }else if (isset($_SESSION['idLogin'])) {
 
@@ -40,5 +41,6 @@ if (isset($_SESSION['idRegistroEmp'])) {
             window.location = "../frontend/Frm_PublicarEmpleo.php";
         </script>
         ';
+        exit();
     }
 }

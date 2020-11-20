@@ -57,10 +57,10 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" value="Guardar" class="btn btn-success">Guardar</button>
+                        <button type="submit" value="Guardar" name="Guardar" class="btn btn-success">Guardar</button>
                     </div>
                     <div class="form-group col-2">
-                        <button type="" value="actualizar" class="btn btn-success ">Actualizar</button>
+                        <button type="submit" value="actualizar" name="Actualizar" class="btn btn-success ">Actualizar</button>
                     </div>
                 </div>
             </form>

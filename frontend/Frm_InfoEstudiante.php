@@ -87,11 +87,11 @@
                         <label for="SelectMunicipio">Ciudad</label>
                         <select id="inputMunicipio" value="<?php echo $estudiante['user_ciudad']; ?>" name="CbxCiudad" class="form-control">
                             <option selected>Selecione municipio...</option>
-                            <option>Chigorodo</option>
-                            <option>Carepa</option>
+                            <option>Chigorodó</option>
+                            <option>Cárepa</option>
                             <option>Apartadó</option>
                             <option>Turbo</option>
-                            <option>Necocli</option>
+                            <option>Necoclí</option>
                             <option>Monteria</option>
                             <option>Medellin</option>
                             <option>Rionegro</option>
