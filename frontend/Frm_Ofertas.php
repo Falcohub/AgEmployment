@@ -1,4 +1,6 @@
-<?php include('vistas/Header.php') ?>
+<?php include 'vistas/Header.php';
+    session_start();
+?>
 
 <!---------------------BANNER SECTION------------------------------>
 
@@ -37,12 +39,13 @@
                 $db = new Database();
                 $conexion = $db->connect();
 
-                $empleos = $conexion->query("SELECT emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos");
+                $empleos = $conexion->query("SELECT emp_pkid ,emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos");
                 $empleos->execute();
                 $listaempleos = $empleos->fetchAll(PDO::FETCH_ASSOC);
             ?>
 
-            <?php foreach ($listaempleos as $ofertas) { ?>
+            <?php foreach ($listaempleos as $ofertas) {
+                ?>
             <div class="col-lg-6 shadow p-3 mb-5 bg-white rounded" id="row1">
                 <div class="card">
                     <div class="card-header text-white bg-secondary"><?php echo $ofertas['emp_tipoEmpleo'] ?></div>
@@ -50,12 +53,17 @@
                         <h5 class="card-title"><?php echo $ofertas['emp_titulo'] ?></h5>
                         <p class="card-text text-justify"><?php echo $ofertas['emp_descripcion'] ?></p>
                         <p class=""><?php echo $ofertas['emp_salario'] ?></p>
-                        <a href="Frm_OfertasDetalle.php" class="btn btn-primary">ver más</a>
+                        <form action="Frm_OfertasDetalle.php" method="POST">
+                            <input name="idEmpleo" class="form-control" type="text" hidden value="<?php echo $ofertas['emp_pkid'] ?>">
+                            <button type="submit" class="btn btn-primary">ver más</button>
+                        </form>
                     </div>
                 </div>
                 <br>
             </div>
-            <?php } ?>
+            <?php     
+            }
+            ?>
 
         </div>
     </div>

@@ -1,15 +1,16 @@
-<?php 
+<?php
+    include 'vistas/Header.php';
     include_once '../backend/conexion.php';
 
+    $idEmpleo = $_POST['idEmpleo'];
+    
     //Establece conexion
     $db = new Database();
     $conexion = $db->connect();
 
-    $consulta = $conexion->prepare("SELECT emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos ");
+    $consulta = $conexion->prepare("SELECT emp_pkid, emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos WHERE emp_pkid = $idEmpleo");
     $consulta->execute();
     $array = $consulta->fetchAll(PDO::FETCH_ASSOC);
-    
-    include ('vistas/Header.php')
 ?>
 
     <!----------------------SERVICES SECTION--------->
@@ -61,7 +62,9 @@
                         </div>
                     </div>
                 </div>
-                <?php }?>
+                <?php }
+        
+                ?>
             </div>
         </div>
     </section>
