@@ -1,35 +1,36 @@
 <?php 
-include_once '../backend/conexion.php';
+    include_once '../backend/conexion.php';
 
-session_start();
+    session_start();
 
-if (!isset($_SESSION['rol'])) {
-    header('location: Frm_Login.php');
-} else {
-    if ($_SESSION['rol'] != 'NIT') {
+    if (!isset($_SESSION['rol'])) {
         header('location: Frm_Login.php');
+    } else {
+        if ($_SESSION['rol'] != 'NIT') {
+            header('location: Frm_Login.php');
+        }
     }
-}
 
-if (isset($_SESSION['idRegistroEmp'])) {
+    if (isset($_SESSION['idRegistroEmp'])) {
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
+        //Establecer conexion
+        $db = new Database();
+        $conexion = $db->connect();
 
-    //Consulta para obtener datos
-    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+        //Consulta para obtener datos
+        $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
 
-}else if (isset($_SESSION['idLogin'])) {
+    }else if (isset($_SESSION['idLogin'])) {
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
+        //Establecer conexion
+        $db = new Database();
+        $conexion = $db->connect();
 
-    //Consulta para obtener datos
-    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
-}
-include('vistas/HeaderEmpresa.php') ?>
+        //Consulta para obtener datos
+        $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+    }
+    include_once 'vistas/HeaderEmpresa.php';
+?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
@@ -43,18 +44,18 @@ include('vistas/HeaderEmpresa.php') ?>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword">Contraseña</label>
-                        <input type="text" name="txtContraseña" value="<?php echo $empresas['user_password']; ?>" class="form-control" id="inputPassword" placeholder="Contraseña">
+                        <input type="password" name="txtContraseña" value="<?php echo $empresas['user_password']; ?>" class="form-control" id="inputPassword" placeholder="Contraseña">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label for="inputAddress2">Fecha</label>
-                        <input type="date" name="txtFecha" value="<?php echo $empresas['user_fechaUser']; ?>" class="form-control" id="fecha">
+                        <label for="inputFecha">Fecha de creación: </label>
+                        <label for="inputFecha"><?php echo $empresas['user_fechaUser']; ?></label>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    <div class="form-group col-2">
+                        <button type="submit" class="btn btn-success w-75">Actualizar</button>
                     </div>
                 </div>
             </form>

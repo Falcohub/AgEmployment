@@ -79,36 +79,4 @@
                  }
              }
     }
-
-    /*if (isset($_SESSION['idRegistroEst'])) {       
-
-        //----- Actualizar datos para completar registro
-        $ActualizarExp = $conexion->prepare("UPDATE tbl_explaboral SET exp_nombreEmpresa = '$nombreEmpre', exp_cargo = '$cargo', exp_contactoEmpresa = '$contactoEmpre', exp_fechaIni = '$fechaInic', exp_fecha = '$fechaFin'  WHERE user_pkid = {$_SESSION['idRegistroEst']}");
-
-            if ($ActualizarExp->execute()) {
-                $_SESSION['idRegistroEst'] = $documento;
-                echo '
-                    <script>
-                        alert("Datos guardados correctamente.");
-                        window.location = "../frontend/Frm_Infoestudiante.php";
-                    </script>
-                    ';
-                    exit();
-            }
-    }else if (isset($_SESSION['idLogin'])) {
-    
-        //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_explaboral SET exp_nombreEmpresa = '$nombreEmpre', exp_cargo = '$cargo', exp_contactoEmpresa = '$contactoEmpre', exp_fechaIni = '$fechaInic', exp_fecha = '$fechaFin' WHERE user_pkid = {$_SESSION['idLogin']}");
-    
-            if ($ActualizarEstudiante->execute()) {
-                $_SESSION['idLogin'] = $documento;
-                echo '
-                    <script>
-                        alert("Datos guardados correctamente.");
-                        window.location = "../frontend/Frm_Infoestudiante.php";
-                    </script>
-                    ';
-                    exit();
-            }
-    }*/
 ?>

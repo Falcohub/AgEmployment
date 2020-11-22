@@ -3,18 +3,19 @@
     include_once '../backend/conexion.php';
 
     $idEmpleo = $_POST['idEmpleo'];
-    
+    $idEmpresa = $_POST['idEmpresa'];
+
     //Establece conexion
     $db = new Database();
     $conexion = $db->connect();
 
-    $consulta = $conexion->prepare("SELECT emp_pkid, emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos WHERE emp_pkid = $idEmpleo");
+    $consulta = $conexion->prepare("SELECT emp_pkid, emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario, emp_lugar, user_nombres FROM tbl_empleos, tbl_usuarios WHERE emp_pkid = $idEmpleo AND user_pkid = $idEmpresa");
     $consulta->execute();
     $array = $consulta->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
     <!----------------------SERVICES SECTION--------->
-    <section id="services">
+    <section id="services"> 
         <div class="container text-center">
             <h1>OFERTA LABORAL</h1>
             <br>
@@ -39,20 +40,23 @@
                     <div class="col-lg-4" id="row2">
                         <div class="card" id="car2">
                             <div class="card-header">
-                                <a href="#" class="btn btn-primary">Aplicar trabajo</a>
+                                <form action="../backend/Postular.php" method="POST">
+                                    <input name="idEmpleo" class="form-control" type="text" hidden value="<?php echo $oferta['emp_pkid'] ?>">
+                                    <button type="submit" name="AplicarEmpleo" class="btn btn-primary">Aplicar empleo</button>
+                                </form>
                             </div>
                             <div class="card-body">
-                                <h6>Compañia</h6>
-                                <div class="compañia">
-                                    <p>empresa</p>
+                                <h6>Empresa</h6>
+                                <div class="Empresa">
+                                    <p><?php echo $oferta['user_nombres'];?></p>
                                 </div>
                                 <h6>Tipo Empleo</h6>
                                 <div class="Empleo">
                                     <p><?php echo $oferta['emp_tipoEmpleo']; ?></p>
                                 </div>
-                                <h6>Departamento</h6>
+                                <h6>Lugar</h6>
                                 <div class="Departamento">
-                                    <p>empresa</p>
+                                    <p><?php echo $oferta['emp_lugar'];?></p>
                                 </div>
                                 <h6>Salario</h6>
                                 <div class="Salario">

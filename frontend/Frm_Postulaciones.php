@@ -1,4 +1,24 @@
-<?php include('vistas/HeaderEmpresa.php') ?>
+<?php 
+    include_once '../backend/conexion.php';
+
+    session_start();
+
+    if (!isset($_SESSION['rol'])) {
+        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+        exit();
+    } else {
+        if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
+            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
+            exit();
+        }
+    }
+
+    //Establecer conexión
+    $db = new Database();
+    $conexion = $db->connect();
+    
+    include 'vistas/HeaderEmpresa.php';
+?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
@@ -6,38 +26,52 @@
         <div class="card-body">
             <form>
             <?php
-                $conexion=new PDO("mysql:host=localhost;dbname=db_agempleo1","root","");
 
-                $busqueda=$conexion->query("Select * from tbl_postulaciones");
-                /*Almacenamos el resultado de fetchAll en una variable*/
-                $arrDatos=$busqueda->fetchAll(PDO::FETCH_ASSOC);
+                /*if (isset($_SESSION['idRegistroEmp'])) {
 
-                ?>
+                    $idRegistro = $_SESSION['idRegistroEmp'];
+
+                    $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idRegistro'");
+                    //Almacenamos el resultado de fetchAll en una variable
+                 $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
+
+                }else*/ 
+                if (isset($_SESSION['idLogin'])) {
+
+                    $idLogin = $_SESSION['idLogin']; 
+
+                    $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
+                    /*Almacenamos el resultado de fetchAll en una variable*/
+                    $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
+                }
+            ?>
 
                 <table class="table">
                     <thead class="thead-dark">
                        <tr> 
-                            <th class="bg-dark" scope="col">id</th>
-                            <th class="bg-dark" scope="col">Id usuario</th>
-                            <th class="bg-dark" scope="col">Id Empleo</th>
-                            <th class="bg-dark" scope="col">Estado</th>
-                            <th class="bg-dark" scope="col">Fecha</th>
+                            <th class="bg-dark" scope="col">Documento</th>
+                            <th class="bg-dark" scope="col">Estudiante</th>
+                            <th class="bg-dark" scope="col">Contacto</th>
+                            <th class="bg-dark" scope="col">Correo</th>
+                            <th class="bg-dark" scope="col">Empleo</th>
                        </tr>
                     </thead>
 
-                        <?php
-                    
-                /* var_dump($arrDatos);*/
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-                foreach ($arrDatos as $muestra) {
-                    echo '<tr>';
+                    <?php
+                
+                    /* var_dump($arrDatos);*/
+                    /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
+                    foreach ($arrDatos as $muestra) {
+                        echo '<tr>';
 
-                    echo '<td >' . $muestra['pos_pkid'] . '</td>';
-                    echo '<td >' . $muestra['pos_fkUsuario'] . '</td>';
-                    echo '<td >' . $muestra['pos_fkEmpleo'] . '</td>';
-                    echo '<td >' . $muestra['pos_Estado'] . '</td>';
-                    echo '<td >' . $muestra['pos_fecha'] . '</td>';
-                }
+                        echo '<td >' . $muestra['pos_fkUsuario'] . '</td>';
+                        echo '<td >' . $muestra['user_nombres'] . ' '.$muestra['user_apellidos'].'</td>';
+                        //echo '<td >' . $muestra['user_apellidos'] . '</td>';
+                        echo '<td >' . $muestra['user_contacto'] . '</td>';
+                        echo '<td >' . $muestra['user_correo'] . '</td>';
+                        echo '<td >' . $muestra['emp_titulo'] . '</td>';
+                    }
+                
                 ?>
 
                 </table>

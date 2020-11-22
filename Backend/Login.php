@@ -30,10 +30,10 @@
                 $_SESSION['rol'] = $rol;
                 if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
                     echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEstudiante.php">';
-                    //header('location: ../frontend/Frm_InfoEstudiante.php');
+                    exit();
                 }else{
                     echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEmpresa.php">';
-                    //header('location: ../frontend/Frm_InfoEmpresa.php');
+                    exit();
                 }
             }else{
                 //No existe usuario
@@ -43,6 +43,7 @@
                 window.location = "../frontend/Frm_Login.php";
                 </script>
                 ';
+                exit();
             }
         }
 ?>

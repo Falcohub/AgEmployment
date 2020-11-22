@@ -19,7 +19,6 @@
 
     if (isset($_SESSION['idRegistroEmp'])) {
 
-
         //Consulta para obtener datos
         $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
 
@@ -83,10 +82,7 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" value="CompletarRegistro" class="btn btn-primary w-75">Guardar</button>
-                    </div>
-                    <div class="form-group col-2">
-                        <button type="submit" class="btn btn-primary w-75">Actualizar</button>
+                        <button type="submit" value="CompletarRegistro" class="btn btn-success w-75">Guardar</button>
                     </div>
                 </div>
             </form>

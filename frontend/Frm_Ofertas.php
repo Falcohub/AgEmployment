@@ -39,7 +39,7 @@
                 $db = new Database();
                 $conexion = $db->connect();
 
-                $empleos = $conexion->query("SELECT emp_pkid ,emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario FROM tbl_empleos");
+                $empleos = $conexion->query("SELECT emp_pkid ,emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario, emp_fkUsuario FROM tbl_empleos");
                 $empleos->execute();
                 $listaempleos = $empleos->fetchAll(PDO::FETCH_ASSOC);
             ?>
@@ -53,7 +53,8 @@
                         <h5 class="card-title"><?php echo $ofertas['emp_titulo'] ?></h5>
                         <p class="card-text text-justify"><?php echo $ofertas['emp_descripcion'] ?></p>
                         <p class=""><?php echo $ofertas['emp_salario'] ?></p>
-                        <form action="Frm_OfertasDetalle.php" method="POST">
+                        <form action="Frm_OfertaDetalle.php" method="POST">
+                            <input name="idEmpresa" class="form-control" type="text" hidden value="<?php echo $ofertas['emp_fkUsuario']?>">
                             <input name="idEmpleo" class="form-control" type="text" hidden value="<?php echo $ofertas['emp_pkid'] ?>">
                             <button type="submit" class="btn btn-primary">ver más</button>
                         </form>
