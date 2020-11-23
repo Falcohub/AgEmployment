@@ -1,33 +1,33 @@
 <?php
-    include_once '../backend/conexion.php';
+include_once '../backend/conexion.php';
 
-    session_start();
+session_start();
 
-    if (!isset($_SESSION['rol'])) {
-        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+if (!isset($_SESSION['rol'])) {
+    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+    exit();
+} else {
+    if ($_SESSION['rol'] == 'NIT') {
+        echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
         exit();
-    } else {
-        if ($_SESSION['rol'] == 'NIT') {
-            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
-            exit();
-        }
     }
+}
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
+//Establecer conexion
+$db = new Database();
+$conexion = $db->connect();
 
-    if (isset($_SESSION['idRegistroEst'])) {
+if (isset($_SESSION['idRegistroEst'])) {
 
-        //Consulta para obtener datos
-        $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
-    } else if (isset($_SESSION['idLogin'])) {
+    //Consulta para obtener datos
+    $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEst']}")->fetch(PDO::FETCH_ASSOC);
+} else if (isset($_SESSION['idLogin'])) {
 
-        //Consulta para obtener datos
-        $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
-    }
+    //Consulta para obtener datos
+    $estudiante = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+}
 
-    include_once 'vistas/HeaderEstudiante.php';
+include_once 'vistas/HeaderEstudiante.php';
 ?>
 
 <div class="content mt-0 mb-5">
@@ -61,12 +61,9 @@
                     <div class="form-group col-md-2">
                         <label for="SelectSexo">Sexo</label>
                         <select id="inputSexo" name="CbxSexo" class="form-control">
-                        <?php
-                            foreach($categoria as $categorias)
-                            {
-                                echo '<option value="'.$categorias["Id_Categoria"].'">'.$categorias["DescripcionCat"].'</option>';
-                            }
-                        ?>
+                            <option selected>Seleccionar...</option>
+                            <option value="1">Masculino</option>
+                            <option value="1">Femenino</option>
                         </select>
                     </div>
                     <div class="form-group col-md-5">
@@ -117,12 +114,12 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label for="SubirCV">Adjuntar hoja de vida.</label>
-                        <input type="file" class="form-control-file" id="SubirCV">
+                        <input type="file" name="file" class="form-control-file" >
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" value="GuardarEstudiante" class="btn btn-success">Guardar</button>
+                        <button type="submit" value="GuardarEstudiante" class="btn btn-success w-50">Guardar</button>
                     </div>
                 </div>
             </form>

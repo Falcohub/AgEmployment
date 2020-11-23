@@ -48,13 +48,13 @@ include('vistas/HeaderEstudiante.php') ?>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="inputAddress2">Fecha</label>
-                        <input type="date" name="txtdate" value=" <?php echo $cuenta['user_fechaUser']; ?>" class="form-control col-12" id="fecha">
+                        <label for="inputAddress2">Fecha de creación de cuenta: </label>
+                        <label for="inputFecha"><?php echo $cuenta['user_fechaUser']; ?></label>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-2">
-                        <button type="submit" name="Actualizar" class="btn btn-success">Actualizar perfil</button>
+                        <button type="submit" name="Actualizar" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>

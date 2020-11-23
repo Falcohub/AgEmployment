@@ -24,7 +24,7 @@
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Postulaciones</h3>
         <div class="card-body">
-            <form>
+            <form action="../backend/DescargarCV.php    " method="POST" enctype="multipart/form-data">
             <?php
 
                 /*if (isset($_SESSION['idRegistroEmp'])) {
@@ -40,7 +40,7 @@
 
                     $idLogin = $_SESSION['idLogin']; 
 
-                    $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
+                    $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo, tu.user_cv FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
                     
                     /*Almacenamos el resultado de fetchAll en una variable*/
                     $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
@@ -55,6 +55,8 @@
                             <th class="bg-dark" scope="col">Contacto</th>
                             <th class="bg-dark" scope="col">Correo</th>
                             <th class="bg-dark" scope="col">Empleo</th>
+                            <th class="bg-dark" scope="col">Ruta CV</th>
+                            <th class="bg-dark" scope="col">Hoja de vida</th>
                        </tr>
                     </thead>
 
@@ -71,8 +73,9 @@
                         echo '<td >' . $muestra['user_contacto'] . '</td>';
                         echo '<td >' . $muestra['user_correo'] . '</td>';
                         echo '<td >' . $muestra['emp_titulo'] . '</td>';
+                        echo '<td >' . $muestra['user_cv'] . '</td>';
+                        echo '<td >' . '<a href="'.$muestra['user_cv'].'" download="Curriculum.pdf">Descargar</a>' . '</td>';
                     }
-                
                 ?>
 
                 </table>
