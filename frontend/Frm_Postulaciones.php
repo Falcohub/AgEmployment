@@ -55,7 +55,6 @@
                             <th class="bg-dark" scope="col">Contacto</th>
                             <th class="bg-dark" scope="col">Correo</th>
                             <th class="bg-dark" scope="col">Empleo</th>
-                            <th class="bg-dark" scope="col">Ruta CV</th>
                             <th class="bg-dark" scope="col">Hoja de vida</th>
                        </tr>
                     </thead>
@@ -69,11 +68,9 @@
 
                         echo '<td >' . $muestra['pos_fkUsuario'] . '</td>';
                         echo '<td >' . $muestra['user_nombres'] . ' '.$muestra['user_apellidos'].'</td>';
-                        //echo '<td >' . $muestra['user_apellidos'] . '</td>';
                         echo '<td >' . $muestra['user_contacto'] . '</td>';
                         echo '<td >' . $muestra['user_correo'] . '</td>';
                         echo '<td >' . $muestra['emp_titulo'] . '</td>';
-                        echo '<td >' . $muestra['user_cv'] . '</td>';
                         echo '<td >' . '<a href="'.$muestra['user_cv'].'" download="Curriculum.pdf">Descargar</a>' . '</td>';
                     }
                 ?>

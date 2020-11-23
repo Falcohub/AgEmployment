@@ -1,9 +1,9 @@
 <?php
-    session_start();
+session_start();
 
-    if(isset($_SESSION['rol'])){
-        header('location: ../frontend/Frm_InfoEstudiante.php');
-    }
+if (isset($_SESSION['rol'])) {
+    header('location: ../frontend/Frm_InfoEstudiante.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,11 +24,11 @@
                     <h2 class="tittle">Iniciar sesión</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="TxtUsuario" placeholder="Usuario" required/>
+                        <input type="text" name="TxtUsuario" placeholder="Usuario" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="TxtPassword" placeholder="Contraseña" required/>
+                        <input type="password" name="TxtPassword" placeholder="Contraseña" required />
                     </div>
                     <a href="Frm_RecuperarPass.php">¿Olvidaste tu contraseña?</a>
                     <input type="submit" value="Iniciar sesion" class="btn solid">

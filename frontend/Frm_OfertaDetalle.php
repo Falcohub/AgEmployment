@@ -1,26 +1,37 @@
 <?php
-    include 'vistas/Header.php';
-    include_once '../backend/conexion.php';
+include_once '../backend/conexion.php';
 
-    $idEmpleo = $_POST['idEmpleo'];
-    $idEmpresa = $_POST['idEmpresa'];
+session_start();
 
-    //Establece conexion
-    $db = new Database();
-    $conexion = $db->connect();
+if (!isset($_SESSION['rol'])) {
 
-    $consulta = $conexion->prepare("SELECT emp_pkid, emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario, emp_lugar, user_nombres FROM tbl_empleos, tbl_usuarios WHERE emp_pkid = $idEmpleo AND user_pkid = $idEmpresa");
-    $consulta->execute();
-    $array = $consulta->fetchAll(PDO::FETCH_ASSOC);
+    include_once 'vistas/Header.php';
+} else if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
+
+    include_once 'vistas/HeaderLogEstudiante.php';
+} else {
+    include_once 'vistas/HeaderLogEmpresa.php';
+}
+
+$idEmpleo = $_POST['idEmpleo'];
+$idEmpresa = $_POST['idEmpresa'];
+
+//Establece conexion
+$db = new Database();
+$conexion = $db->connect();
+
+$consulta = $conexion->prepare("SELECT emp_pkid, emp_titulo, emp_tipoEmpleo, emp_descripcion, emp_salario, emp_lugar, user_nombres FROM tbl_empleos, tbl_usuarios WHERE emp_pkid = $idEmpleo AND user_pkid = $idEmpresa");
+$consulta->execute();
+$array = $consulta->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-    <!----------------------SERVICES SECTION--------->
-    <section id="services"> 
-        <div class="container text-center">
-            <h1>OFERTA LABORAL</h1>
-            <br>
-            <div class="container" id="con">
-                <div class="row">
+<!----------------------SERVICES SECTION--------->
+<section id="services">
+    <div class="container text-center">
+        <h1>OFERTA LABORAL</h1>
+        <br>
+        <div class="container" id="con">
+            <div class="row">
                 <?php foreach ($array as $oferta) { ?>
                     <div class="col-lg-8" id="row1">
                         <div class="card" id="car1">
@@ -31,11 +42,11 @@
                             <div class="card-body">
                                 <div class="input-group text-justify">
                                     <p><?php echo $oferta['emp_descripcion']; ?></p>
-                                     </p>
+                                    </p>
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
 
                     <div class="col-lg-4" id="row2">
                         <div class="card" id="car2">
@@ -48,7 +59,7 @@
                             <div class="card-body">
                                 <h6>Empresa</h6>
                                 <div class="Empresa">
-                                    <p><?php echo $oferta['user_nombres'];?></p>
+                                    <p><?php echo $oferta['user_nombres']; ?></p>
                                 </div>
                                 <h6>Tipo Empleo</h6>
                                 <div class="Empleo">
@@ -56,7 +67,7 @@
                                 </div>
                                 <h6>Lugar</h6>
                                 <div class="Departamento">
-                                    <p><?php echo $oferta['emp_lugar'];?></p>
+                                    <p><?php echo $oferta['emp_lugar']; ?></p>
                                 </div>
                                 <h6>Salario</h6>
                                 <div class="Salario">
@@ -65,19 +76,19 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <?php }
-        
-                ?>
             </div>
+        <?php }
+
+        ?>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-----------ABOUT US------------>
+<!-----------ABOUT US------------>
 
 
-    <!--------------------Social media section----------------------->
-    
+<!--------------------Social media section----------------------->
 
-    <!---------------------Footer Section-------------------------->
-    <?php include ('vistas/Footer.php') ?>
+
+<!---------------------Footer Section-------------------------->
+<?php include('vistas/Footer.php') ?>

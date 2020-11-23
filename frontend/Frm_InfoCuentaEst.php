@@ -6,12 +6,11 @@ session_start();
 if (!isset($_SESSION['rol'])) {
     echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
     exit();
-    //header('location: Frm_Login.php');
+
 } else {
     if ($_SESSION['rol'] == 'NIT') {
         echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
         exit();
-        //header('location: Frm_Login.php');
     }
 }
 

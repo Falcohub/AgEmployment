@@ -1,34 +1,33 @@
 <?php
-    include_once '../backend/conexion.php';
+include_once '../backend/conexion.php';
 
-    session_start();
+session_start();
 
-    if (!isset($_SESSION['rol'])) {
-        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+if (!isset($_SESSION['rol'])) {
+    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+    exit();
+} else {
+    if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
+        echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
         exit();
-    } else {
-        if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
-            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
-            exit();
-        }
     }
+}
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
+//Establecer conexion
+$db = new Database();
+$conexion = $db->connect();
 
-    if (isset($_SESSION['idRegistroEmp'])) {
+if (isset($_SESSION['idRegistroEmp'])) {
 
-        //Consulta para obtener datos
-        $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+    //Consulta para obtener datos
+    $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+} else if (isset($_SESSION['idLogin'])) {
 
-    }else if (isset($_SESSION['idLogin'])) {
+    //Consulta para obtener datos
+    $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+}
 
-        //Consulta para obtener datos
-        $empresa = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
-    }
-
-    include 'vistas/HeaderEmpresa.php';
+include 'vistas/HeaderEmpresa.php';
 ?>
 
 <div class="content mt-0 mb-5">
