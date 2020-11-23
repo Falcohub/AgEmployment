@@ -36,6 +36,12 @@ if (isset($_SESSION['idRegistroEmp'])) {
         VALUES ('$titulo', '$descripcion', '$salario',  '$tipoEmpleo', '$ubicacion', CURRENT_DATE, '$fechaFin', '{$_SESSION['idLogin']}');");
 
     if ($publicarEmpleo->execute()) {
-        
+        echo '
+        <script>
+            alert("Empleo publicado.");
+            window.location = "../frontend/Frm_PublicarEmpleo.php";
+        </script>
+        ';
+        exit();
     }
 }

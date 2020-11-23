@@ -66,7 +66,7 @@
             if (isset($_POST['Actualizar'])) {
 
                 //----- Actualizar datos para completar registro
-                 $ActualizarExp = $conexion->prepare("UPDATE tbl_explaboral SET exp_nombreEmpresa = '$nombreEmpre', exp_cargo = '$cargo', exp_contactoEmpresa = '$contactoEmpre', exp_fechaIni = '$fechaInic', exp_fechaFin = '$fechaFin'  WHERE exp_fkUsuario = {$_SESSION['idRegistroEst']}");
+                 $ActualizarExp = $conexion->prepare("UPDATE tbl_explaboral SET exp_nombreEmpresa = '$nombreEmpre', exp_cargo = '$cargo', exp_contactoEmpresa = '$contactoEmpre', exp_fechaIni = '$fechaInic', exp_fechaFin = '$fechaFin'  WHERE exp_fkUsuario = {$_SESSION['idLogin']}");
  
                  if ($ActualizarExp->execute()) {
                      echo '

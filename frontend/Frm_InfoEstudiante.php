@@ -34,7 +34,7 @@
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Perfil estudiante</h3>
         <div class="card-body">
-            <form action="../backend/InfoEstudiante.php" method="POST">
+            <form action="../backend/InfoEstudiante.php" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputDocumento">Documento</label>
@@ -112,6 +112,12 @@
                     <div class="form-group col-md-12">
                         <label>Descripcion del perfil</label>
                         <textarea id="descripcion_perfil" name="TxtPerfil" class="md-textarea form-control"><?php echo $estudiante['user_perfil']; ?></textarea>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="SubirCV">Adjuntar hoja de vida.</label>
+                        <input type="file" class="form-control-file" id="SubirCV">
                     </div>
                 </div>
                 <div class="form-row">

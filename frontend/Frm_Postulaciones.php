@@ -41,6 +41,7 @@
                     $idLogin = $_SESSION['idLogin']; 
 
                     $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
+                    
                     /*Almacenamos el resultado de fetchAll en una variable*/
                     $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
                 }
