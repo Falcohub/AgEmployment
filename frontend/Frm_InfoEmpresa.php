@@ -1,5 +1,5 @@
 <?php
-include_once '../backend/conexion.php';
+include_once 'backend/conexion.php';
 
 session_start();
 
@@ -34,7 +34,7 @@ include 'vistas/HeaderEmpresa.php';
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Perfil empresa</h3>
         <div class="card-body">
-            <form action="../backend/InfoEmpresa.php" method="POST">
+            <form action="backend/InfoEmpresa.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNIT">NIT</label>

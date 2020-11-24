@@ -1,5 +1,5 @@
 <?php
-include_once '../backend/conexion.php';
+include_once 'backend/conexion.php';
 
 session_start();
 
@@ -51,7 +51,7 @@ $array = $consulta->fetchAll(PDO::FETCH_ASSOC);
                     <div class="col-lg-4" id="row2">
                         <div class="card" id="car2">
                             <div class="card-header">
-                                <form action="../backend/Postular.php" method="POST">
+                                <form action="backend/Postular.php" method="POST">
                                     <input name="idEmpleo" class="form-control" type="text" hidden value="<?php echo $oferta['emp_pkid'] ?>">
                                     <button type="submit" name="AplicarEmpleo" class="btn btn-primary">Aplicar empleo</button>
                                 </form>

@@ -1,5 +1,5 @@
 <?php
-include_once '../backend/conexion.php';
+include_once 'backend/conexion.php';
 
 session_start();
 
@@ -34,7 +34,7 @@ include_once 'vistas/HeaderEstudiante.php';
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Perfil estudiante</h3>
         <div class="card-body">
-            <form action="../backend/InfoEstudiante.php" method="POST" enctype="multipart/form-data">
+            <form action="backend/InfoEstudiante.php" method="POST" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label for="inputDocumento">Documento</label>
@@ -114,7 +114,7 @@ include_once 'vistas/HeaderEstudiante.php';
                 <div class="form-row">
                     <div class="form-group">
                         <label for="SubirCV">Adjuntar hoja de vida.</label>
-                        <input type="file" name="file" value="" class="form-control-file" required><?php echo $estudiante['user_cv']; ?></input>
+                        <input type="file" name="file" value="" class="form-control-file"><?php echo $estudiante['user_cv']; ?>
                     </div>
                 </div>
                 <div class="form-row">

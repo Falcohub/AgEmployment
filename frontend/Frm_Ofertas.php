@@ -46,7 +46,7 @@ if (!isset($_SESSION['rol'])) {
     <div class="container text-center ">
         <div class="row">
             <?php
-            include_once '../backend/conexion.php';
+            include_once 'backend/conexion.php';
 
             if (isset($_POST['Empleo'])) {
                 $Empleo = $_POST['Empleo'];

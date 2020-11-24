@@ -25,7 +25,7 @@ if (isset($_SESSION['idRegistroEmp'])) {
         echo '
         <script>
             alert("Empleo publicado.");
-            window.location = "../frontend/Frm_PublicarEmpleo.php";
+            window.location = "../Frm_PublicarEmpleo.php";
         </script>
         ';
         exit();
@@ -39,7 +39,7 @@ if (isset($_SESSION['idRegistroEmp'])) {
         echo '
         <script>
             alert("Empleo publicado.");
-            window.location = "../frontend/Frm_PublicarEmpleo.php";
+            window.location = "../Frm_PublicarEmpleo.php";
         </script>
         ';
         exit();

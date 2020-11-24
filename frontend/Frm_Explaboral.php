@@ -1,5 +1,5 @@
 <?php 
-    include_once '../backend/conexion.php';
+    include_once 'backend/conexion.php';
 
     session_start();
 
@@ -37,7 +37,7 @@
 
         </div>
         <div class="card-body">
-            <form action="../backend/Experiencia.php" method="POST">
+            <form action="backend/Experiencia.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputNombreEmpresa">Nombre de la empresa donde laboro</label>

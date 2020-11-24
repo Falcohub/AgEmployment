@@ -23,7 +23,7 @@
                 echo '
                     <script>
                         alert("Datos guardados correctamente.");
-                        window.location = "../frontend/Frm_Estudios.php";
+                        window.location = "../Frm_Estudios.php";
                     </script>
                     ';
                     exit();
@@ -39,7 +39,7 @@
                 echo '
                     <script>
                         alert("Datos actualizados correctamente.");
-                        window.location = "../frontend/Frm_Estudios.php";
+                        window.location = "../Frm_Estudios.php";
                     </script>
                     ';
                     exit();
@@ -56,7 +56,7 @@
                 echo '
                     <script>
                         alert("Se guardo correctamente.");
-                        window.location = "../frontend/Frm_Estudios.php";
+                        window.location = "../Frm_Estudios.php";
                     </script>
                     ';
                     exit();
@@ -72,7 +72,7 @@
                 echo '
                     <script>
                         alert("Datos actualizados correctamente.");
-                        window.location = "../frontend/Frm_Estudios.php";
+                        window.location = "../Frm_Estudios.php";
                     </script>
                     ';
                     exit();

@@ -13,7 +13,7 @@
 
         if(isset($_POST['TxtUsuario']) && isset($_POST['TxtPassword'])){
             $usuario = $_POST['TxtUsuario'];
-            $password = sha1($_POST['TxtPassword']);
+            $password = $_POST['TxtPassword'];
             
             $db = new Database();
             $conexion = $db->connect();
@@ -29,10 +29,10 @@
                 $_SESSION['idLogin'] = $IDLogin;
                 $_SESSION['rol'] = $rol;
                 if ($_SESSION['rol'] == 'TI' || $_SESSION['rol'] == 'CC') {
-                    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEstudiante.php">';
+                    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../Frm_InfoEstudiante.php">';
                     exit();
                 }else{
-                    echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../frontend/Frm_InfoEmpresa.php">';
+                    echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=../Frm_InfoEmpresa.php">';
                     exit();
                 }
             }else{
@@ -40,7 +40,7 @@
                 echo '
                 <script>
                 alert("Usuario o contraseña incorrectos.");
-                window.location = "../frontend/Frm_Login.php";
+                window.location = "../Frm_Login.php";
                 </script>
                 ';
                 exit();

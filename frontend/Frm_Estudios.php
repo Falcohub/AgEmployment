@@ -1,5 +1,5 @@
 <?php
-    include_once '../backend/conexion.php';
+    include_once 'backend/conexion.php';
 
     session_start();
 
@@ -34,7 +34,7 @@
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Estudios realizados</h3>
         <div class="card-body">
-            <form action= "../backend/Estudios.php" method="POST">
+            <form action= "backend/Estudios.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">Nombre de la institucion</label>

@@ -9,7 +9,7 @@
 
 
 //Ubicacion para guardar el archivo----------------------------------------------------------------------
-$directorio = "../frontend/docs/";
+$directorio = "../docs/";
 
 //Nombre de archivo
 $archivo = $directorio . basename($_FILES["file"]["name"]);
@@ -29,7 +29,7 @@ if ($checarSiArchivo != false) {
         echo '
         <script>
             alert("El archivo tiene que ser menor a 900kb");
-            window.location = "../frontend/Frm_Infoestudiante.php";
+            window.location = "../Frm_Infoestudiante.php";
         </script>
         ';
     } else {
@@ -42,14 +42,14 @@ if ($checarSiArchivo != false) {
                 echo '
                 <script>
                     alert("Datos guardados correctamente.");
-                    window.location = "../frontend/Frm_Infoestudiante.php";
+                    window.location = "../Frm_Infoestudiante.php";
                 </script>
                 ';     
             }else{
                 echo '
                 <script>
                     alert("Hubo Error");
-                    window.location = "../frontend/Frm_Infoestudiante.php";
+                    window.location = "../Frm_Infoestudiante.php";
                 </script>
                 ';
             }
@@ -58,7 +58,7 @@ if ($checarSiArchivo != false) {
             echo '
         <script>
             alert("Solo permite archivos pdf y docx");
-            window.location = "../frontend/Frm_Infoestudiante.php";
+            window.location = "../Frm_Infoestudiante.php";
         </script>
         ';
         }
@@ -67,7 +67,7 @@ if ($checarSiArchivo != false) {
     echo '
         <script>
             alert("Esto no es un archivo");
-            window.location = "../frontend/Frm_Infoestudiante.php";
+            window.location = "../Frm_Infoestudiante.php";
         </script>
         ';
 }   
@@ -89,28 +89,28 @@ if ($checarSiArchivo != false) {
     if (isset($_SESSION['idRegistroEst'])) {       
 
         //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', Hoja = '$subirCV'  WHERE user_pkid = {$_SESSION['idRegistroEst']}");
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', user_cv = '$subirCV'  WHERE user_pkid = {$_SESSION['idRegistroEst']}");
 
             if ($ActualizarEstudiante->execute()) {
                 $_SESSION['idRegistroEst'] = $documento;
                 echo '
                     <script>
                         alert("Datos guardados correctamente.");
-                        window.location = "../frontend/Frm_Infoestudiante.php";
+                        window.location = "../Frm_Infoestudiante.php";
                     </script>
                     ';
             }
     }else if (isset($_SESSION['idLogin'])) {
     
         //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', Hoja = '$subirCV' WHERE user_pkid = {$_SESSION['idLogin']}");
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', user_cv = '$subirCV' WHERE user_pkid = {$_SESSION['idLogin']}");
     
             if ($ActualizarEstudiante->execute()) {
                 $_SESSION['idLogin'] = $documento;
                 echo '
                     <script>
                         alert("Datos guardados correctamente.");
-                        window.location = "../frontend/Frm_Infoestudiante.php";
+                        window.location = "../Frm_Infoestudiante.php";
                     </script>
                     ';
             }

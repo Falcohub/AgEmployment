@@ -1,5 +1,5 @@
 <?php
-include_once '../backend/conexion.php';
+include_once 'backend/conexion.php';
 
 session_start();
 
@@ -23,7 +23,7 @@ include_once 'vistas/HeaderEmpresa.php';
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Publicar empleo</h3>
         <div class="card-body">
-            <form action="../backend/PublicarEmpleo.php" method="POST">
+            <form action="backend/PublicarEmpleo.php" method="POST">
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputTitulo">Titulo</label>
@@ -74,9 +74,9 @@ include_once 'vistas/HeaderEmpresa.php';
                     <div class="form-group col-2">
                         <button type="submit" alue="PublicarEmpleo" class="btn btn-success w-75">Guardar</button>
                     </div>
-                    <div class="form-group col-2">
+                    <!--<div class="form-group col-2">
                         <button type="submit" class="btn btn-success w-75">Editar</button>
-                    </div>
+                    </div>-->
                 </div>
             </form>
             <br>

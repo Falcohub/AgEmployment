@@ -25,7 +25,7 @@ if (isset($_SESSION['idRegistroEmp'])) {
             echo '
                     <script>
                         alert("Contraseña actualizada con éxito.");
-                        window.location = "../frontend/Frm_InfoCuenta.php";
+                        window.location = "../Frm_InfoCuenta.php";
                     </script>
                     ';
         }
@@ -33,7 +33,7 @@ if (isset($_SESSION['idRegistroEmp'])) {
         echo '
         <script>
             alert("La contraseña actual es incorrecta.");
-            window.location = "../frontend/Frm_InfoCuenta.php";
+            window.location = "../Frm_InfoCuenta.php";
         </script>
         ';
     }
@@ -55,7 +55,7 @@ if (isset($_SESSION['idLogin'])) {
             echo '
                     <script>
                         alert("Contraseña actualizada con éxito.");
-                        window.location = "../frontend/Frm_InfoCuenta.php";
+                        window.location = "../Frm_InfoCuenta.php";
                     </script>
                     ';
         }
@@ -63,7 +63,7 @@ if (isset($_SESSION['idLogin'])) {
         echo '
         <script>
             alert("La contraseña actual es incorrecta.");
-            window.location = "../frontend/Frm_InfoCuenta.php";
+            window.location = "../Frm_InfoCuenta.php";
         </script>
         ';
     }

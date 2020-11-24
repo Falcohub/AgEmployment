@@ -23,7 +23,7 @@
             echo '
             <script>
             alert("Este NIT ya esta registrado.");
-            window.location = "../frontend/Frm_Registro.php";
+            window.location = "../Frm_Registro.php";
             </script>
             ';
             exit();
@@ -37,7 +37,7 @@
             echo '
             <script>
             alert("Este correo ya esta registrado.");
-            window.location = "../frontend/Frm_Registro.php";
+            window.location = "../Frm_Registro.php";
             </script>
             ';
             exit();
@@ -50,10 +50,10 @@
             //validar rol
             $_SESSION['rol'] = 'NIT';
             $_SESSION['idRegistroEmp'] = $NIT;
-            header('location: ../frontend/Frm_InfoEmpresa.php');
+            header('location: ../Frm_InfoEmpresa.php');
         }else{
             //----- Cargar la pagina para completar registro -----
-            header('location: ../frontend/Frm_Registro.php');
+            header('location: ../Frm_Registro.php');
         }
         }
     }

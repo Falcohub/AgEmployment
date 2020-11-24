@@ -21,7 +21,7 @@ if (isset($_SESSION['rol'])) {
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="../backend/RegistroEstudiante.php" class="sign-in-form" method="POST">
+                <form action="backend/RegistroEstudiante.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Registro estudiante</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>
@@ -49,7 +49,7 @@ if (isset($_SESSION['rol'])) {
                     </div>-->
                 </form>
 
-                <form action="../backend/RegistroEmpresa.php" class="sign-up-form" method="POST">
+                <form action="backend/RegistroEmpresa.php" class="sign-up-form" method="POST">
                     <h2 class="tittle">Registro empresa</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>

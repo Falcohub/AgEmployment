@@ -22,7 +22,7 @@ if (isset($_SESSION['rol'])) {
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-                <form action="../backend/Login.php" class="sign-in-form" method="POST">
+                <form action="backend/Login.php" class="sign-in-form" method="POST">
                     <h2 class="tittle">Iniciar sesión</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>

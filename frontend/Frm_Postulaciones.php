@@ -1,5 +1,5 @@
 <?php
-include_once '../backend/conexion.php';
+include_once 'backend/conexion.php';
 
 session_start();
 
@@ -24,7 +24,7 @@ include 'vistas/HeaderEmpresa.php';
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Postulaciones</h3>
         <div class="card-body">
-            <form action="../backend/DescargarCV.php    " method="POST" enctype="multipart/form-data">
+            <form action="backend/DescargarCV.php    " method="POST" enctype="multipart/form-data">
                 <?php
 
                 if (isset($_SESSION['idRegistroEmp'])) {
@@ -77,7 +77,7 @@ include 'vistas/HeaderEmpresa.php';
 
                 </table>
                 </table>
-                <nav aria-label="Page navigation example">
+                <!--<nav aria-label="Page navigation example">
                     <ul class="pagination justify-content-center">
                         <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                         <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -85,7 +85,7 @@ include 'vistas/HeaderEmpresa.php';
                         <li class="page-item"><a class="page-link" href="#">3</a></li>
                         <li class="page-item"><a class="page-link" href="#">Next</a></li>
                     </ul>
-                </nav>
+                </nav>-->
             </form>
         </div>
     </div>

@@ -23,8 +23,8 @@
             if ($GuardarExperiencia->execute()) {
                 echo '
                     <script>
-                        alert("Datos guardados   correctamente.");
-                        window.location = "../frontend/Frm_Explaboral.php";
+                        alert("Datos guardados correctamente.");
+                        window.location = "../Frm_Explaboral.php";
                     </script>
                     ';
                     exit();
@@ -39,7 +39,7 @@
                 echo '
                     <script>
                         alert("Datos actualizados correctamente.");
-                        window.location = "../frontend/Frm_Explaboral.php";
+                        window.location = "../Frm_Explaboral.php";
                     </script>
                     ';
                     exit();
@@ -56,7 +56,7 @@
                     echo '
                         <script>
                             alert("Datos guardados correctamente.");
-                            window.location = "../frontend/Frm_InfoExplaboral.php";
+                            window.location = "../Frm_Explaboral.php";
                         </script>
                         ';
                         exit();
@@ -72,7 +72,7 @@
                      echo '
                          <script>
                              alert("Datos actualizados correctamente.");
-                             window.location = "../frontend/Frm_Explaboral.php";
+                             window.location = "../Frm_Explaboral.php";
                          </script>
                          ';
                          exit();

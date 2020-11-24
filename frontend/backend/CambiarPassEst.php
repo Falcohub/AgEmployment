@@ -7,8 +7,8 @@ session_start();
 $db = new Database();
 $conexion = $db->connect();
 
-$password = sha1($_POST['TxtPassword']);
-$newPassword = sha1($_POST['TxtNewPass']);
+$password = $_POST['TxtPassword'];
+$newPassword = $_POST['TxtNewPass'];
 
 if (isset($_SESSION['idRegistroEst'])) {
     $usuario = $_SESSION['idRegistroEst'];
@@ -25,7 +25,7 @@ if (isset($_SESSION['idRegistroEst'])) {
             echo '
                     <script>
                         alert("Contraseña actualizada con éxito.");
-                        window.location = "../frontend/Frm_InfoCuentaEst.php";
+                        window.location = "../Frm_InfoCuentaEst.php";
                     </script>
                     ';
         }
@@ -33,7 +33,7 @@ if (isset($_SESSION['idRegistroEst'])) {
         echo '
         <script>
             alert("La contraseña actual es incorrecta.");
-            window.location = "../frontend/Frm_InfoCuentaEst.php";
+            window.location = "../Frm_InfoCuentaEst.php";
         </script>
         ';
     }
@@ -55,7 +55,7 @@ if (isset($_SESSION['idLogin'])) {
             echo '
                     <script>
                         alert("Contraseña actualizada con éxito.");
-                        window.location = "../frontend/Frm_InfoCuentaEst.php";
+                        window.location = "../Frm_InfoCuentaEst.php";
                     </script>
                     ';
         }
@@ -63,7 +63,7 @@ if (isset($_SESSION['idLogin'])) {
         echo '
         <script>
             alert("La contraseña actual es incorrecta.");
-            window.location = "../frontend/Frm_InfoCuentaEst.php";
+            window.location = "../Frm_InfoCuentaEst.php";
         </script>
         ';
     }

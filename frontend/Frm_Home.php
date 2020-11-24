@@ -77,12 +77,6 @@ if (!isset($_SESSION['rol'])) {
           <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt veritatis sed laboriosam
             aliquid, ut reiciendis eos earum, quibusdam hic numquam quidem nostrum et sapiente, adipisci libero vitae
             odit deleniti!</li>
-          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt veritatis sed laboriosam
-            aliquid, ut reiciendis eos earum, quibusdam hic numquam quidem nostrum et sapiente, adipisci libero vitae
-            odit deleniti!</li>
-          <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto deserunt veritatis sed laboriosam
-            aliquid, ut reiciendis eos earum, quibusdam hic numquam quidem nostrum et sapiente, adipisci libero vitae
-            odit deleniti!</li>
         </ul>
       </div>
       <div class="col-md-6">

@@ -40,7 +40,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <form action="../backend/CerrarSesion.php">
+                                <form action="backend/CerrarSesion.php">
                                     <button type="submit" name="CerrarSesion" class="dropdown-item" type="button">Cerrar sesion</button>
                                 </form>
                             </div>
@@ -62,7 +62,7 @@
             <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
             <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
             <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-            <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+            <a href="backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -75,7 +75,7 @@
         <a href="Frm_Explaboral.php"><i class="fas fa-user-shield"></i><span>Experiencia Laboral</span></a>
         <a href="Frm_Estudios.php"><i class="fas fa-user-graduate"></i><span>Estudios Relizados</span></a>
         <a href="Frm_InfoCuentaEst.php"><i class="fas fa-unlock-alt"></i><span>Informacion de cuenta</span></a>
-        <a href="../backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
+        <a href="backend/CerrarSesion.php"><i class="fas fa-sign-out-alt"></i><span>Salir</span></a>
     </div>
     <!--sidebar end-->
 

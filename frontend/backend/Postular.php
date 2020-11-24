@@ -18,7 +18,7 @@
                     echo '
                         <script>
                             alert("Aplicaste a este empleo exitosamente");
-                            window.location = "../frontend/Frm_Ofertas.php";
+                            window.location = "../Frm_Ofertas.php";
                         </script>
                         ';
                         exit();
@@ -35,7 +35,7 @@
                     echo '
                         <script>
                             alert("Aplicaste a este empleo exitosamente.");
-                            window.location = "../frontend/Frm_Ofertas.php";
+                            window.location = "../Frm_Ofertas.php";
                         </script>
                         ';
                         exit();
@@ -45,7 +45,7 @@
             echo '
             <script>
                 alert("Debes iniciar sesión.");
-                window.location = "../frontend/Frm_Ofertas.php";
+                window.location = "../Frm_Ofertas.php";
             </script>
             ';
             exit();

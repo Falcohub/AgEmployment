@@ -25,7 +25,7 @@
             echo '
             <script>
                 alert("Datos actualizado correctamente.");
-                window.location = "../frontend/Frm_InfoEmpresa.php";
+                window.location = "../Frm_InfoEmpresa.php";
             </script>
             ';
         }
@@ -38,7 +38,7 @@
             echo '
             <script>
                 alert("Datos actualizado correctamente.");
-                window.location = "../frontend/Frm_InfoEmpresa.php";
+                window.location = "../Frm_InfoEmpresa.php";
             </script>
             ';
         }

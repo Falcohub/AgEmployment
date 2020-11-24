@@ -40,7 +40,7 @@
                             <div class="dropdown-menu dropdown-menu-right">
                                 <button class="dropdown-item" type="button">Perfil</button>
                                 <button class="dropdown-item" type="button">Informacion</button>
-                                <form action="../backend/CerrarSesion.php">
+                                <form action="backend/CerrarSesion.php">
                                     <button type="submit" name="CerrarSesion" class="dropdown-item" type="button">Cerrar sesion</button>
                                 </form>
                             </div>

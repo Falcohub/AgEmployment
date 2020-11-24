@@ -11,7 +11,7 @@
     $nombres = $_POST['TxtNombres'];
     $apellidos = $_POST['TxtApellidos'];
     $correo = $_POST['TxtCorreo'];
-    $password = sha1($_POST['TxtDocumento']);
+    $password = $_POST['TxtDocumento'];
     
     if(isset($_POST['TxtDocumento']) && isset($_POST['TxtNombres']) && isset($_POST['TxtApellidos']) && isset($_POST['TxtCorreo'])){
 
@@ -23,7 +23,7 @@
             echo '
                 <script>
                     alert("Este documento ya esta registrado.");
-                    window.location = "../frontend/Frm_Registro.php";
+                    window.location = "../Frm_Registro.php";
                 </script>
                 ';
             exit();
@@ -37,7 +37,7 @@
             echo '
                 <script>
                     alert("Este correo ya esta registrado.");
-                    window.location = "../frontend/Frm_Registro.php";
+                    window.location = "../Frm_Registro.php";
                 </script>
                 ';
             exit();
@@ -48,10 +48,10 @@
         if ($pst->execute()){
             $_SESSION['rol'] = 'CC';
             $_SESSION['idRegistroEst'] = $documento;
-            header('location: ../frontend/Frm_InfoEstudiante.php');
+            header('location: ../Frm_InfoEstudiante.php');
         }else {
             //----- Cargar la pagina para completar registro -----
-            header('location: ../frontend/Frm_Registro.php');
+            header('location: ../Frm_Registro.php');
         }
         }   
     }

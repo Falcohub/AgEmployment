@@ -10,7 +10,7 @@
     <div class="container">
         <div class="forms-container">
             <div class="signin-signup">
-            <form action="../backend/RecuperarPassword.php" class="sign-in-form" method="POST">
+            <form action="backend/RecuperarPassword.php" class="sign-in-form" method="POST">
                 <h2 class="tittle">Ingresar correo electronico</h2>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
