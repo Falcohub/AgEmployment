@@ -25,26 +25,51 @@ if ($checarSiArchivo != false) {
     //validando tamaño del archivo
     $size = $_FILES["file"]["size"];
 
-    if ($size > 900000) {
-        echo "El archivo tiene que ser menor a 900kb";
+    if ($size > 2000000) {
+        echo '
+        <script>
+            alert("El archivo tiene que ser menor a 900kb");
+            window.location = "../frontend/Frm_Infoestudiante.php";
+        </script>
+        ';
     } else {
 
         //validar tipo de archivo
-        if ($tipoArchivo == "pdf") {
+        if ($tipoArchivo == "pdf" || $tipoArchivo == "docx" ) {
             //se valido el archivo correctamente
 
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $archivo)){
-                echo "El archivo se subió correctamente";     
+                echo '
+                <script>
+                    alert("Datos guardados correctamente.");
+                    window.location = "../frontend/Frm_Infoestudiante.php";
+                </script>
+                ';     
             }else{
-                echo "Hubo un error en la subida del archivo";
+                echo '
+                <script>
+                    alert("Hubo Error");
+                    window.location = "../frontend/Frm_Infoestudiante.php";
+                </script>
+                ';
             }
 
         }else{
-            echo "Solo de admite archivos pdf";
+            echo '
+        <script>
+            alert("Solo permite archivos pdf y docx");
+            window.location = "../frontend/Frm_Infoestudiante.php";
+        </script>
+        ';
         }
     }
 } else {
-    echo "El archivo no es una imagen";
+    echo '
+        <script>
+            alert("Esto no es un archivo");
+            window.location = "../frontend/Frm_Infoestudiante.php";
+        </script>
+        ';
 }   
 
     $documento = $_POST['TxtDocumento'];
@@ -64,7 +89,7 @@ if ($checarSiArchivo != false) {
     if (isset($_SESSION['idRegistroEst'])) {       
 
         //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', user_cv = '$subirCV'  WHERE user_pkid = {$_SESSION['idRegistroEst']}");
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', Hoja = '$subirCV'  WHERE user_pkid = {$_SESSION['idRegistroEst']}");
 
             if ($ActualizarEstudiante->execute()) {
                 $_SESSION['idRegistroEst'] = $documento;
@@ -78,7 +103,7 @@ if ($checarSiArchivo != false) {
     }else if (isset($_SESSION['idLogin'])) {
     
         //----- Actualizar datos para completar registro
-        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', user_cv = '$subirCV' WHERE user_pkid = {$_SESSION['idLogin']}");
+        $ActualizarEstudiante = $conexion->prepare("UPDATE tbl_usuarios SET user_pkid = '$documento', user_ddi = '$ddi', user_nombres = '$nombres', user_apellidos = '$apellidos', user_sexo = '$sexo', user_contacto = '$contacto', user_correo = '$correo', user_dpto = '$dpto', user_ciudad = '$ciudad', user_direccion = '$direccion', user_fechaNac = '$fechaNac', user_perfil = '$perfil', Hoja = '$subirCV' WHERE user_pkid = {$_SESSION['idLogin']}");
     
             if ($ActualizarEstudiante->execute()) {
                 $_SESSION['idLogin'] = $documento;
