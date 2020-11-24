@@ -28,14 +28,14 @@ if ($checarSiArchivo != false) {
     if ($size > 2000000) {
         echo '
         <script>
-            alert("El archivo tiene que ser menor a 900kb");
+            alert("El archivo tiene que ser menor a 2MB");
             window.location = "../Frm_Infoestudiante.php";
         </script>
         ';
     } else {
 
         //validar tipo de archivo
-        if ($tipoArchivo == "pdf" || $tipoArchivo == "docx" ) {
+        if ($tipoArchivo == "pdf") {
             //se valido el archivo correctamente
 
             if(move_uploaded_file($_FILES["file"]["tmp_name"], $archivo)){
@@ -57,7 +57,7 @@ if ($checarSiArchivo != false) {
         }else{
             echo '
         <script>
-            alert("Solo permite archivos pdf y docx");
+            alert("Solo permite archivos pdf");
             window.location = "../Frm_Infoestudiante.php";
         </script>
         ';
