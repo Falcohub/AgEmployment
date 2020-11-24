@@ -1,23 +1,23 @@
-<?php 
-    include_once '../backend/conexion.php';
+<?php
+include_once '../backend/conexion.php';
 
-    session_start();
+session_start();
 
-    if (!isset($_SESSION['rol'])) {
-        echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+if (!isset($_SESSION['rol'])) {
+    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
+    exit();
+} else {
+    if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
+        echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
         exit();
-    } else {
-        if ($_SESSION['rol'] == 'CC' || $_SESSION['rol'] == 'TI') {
-            echo'<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEstudiante.php">';
-            exit();
-        }
     }
+}
 
-    //Establecer conexión
-    $db = new Database();
-    $conexion = $db->connect();
-    
-    include 'vistas/HeaderEmpresa.php';
+//Establecer conexión
+$db = new Database();
+$conexion = $db->connect();
+
+include 'vistas/HeaderEmpresa.php';
 ?>
 
 <div class="content mt-0 mb-5">
@@ -25,9 +25,9 @@
         <h3 class="card-title text-center">Postulaciones</h3>
         <div class="card-body">
             <form action="../backend/DescargarCV.php    " method="POST" enctype="multipart/form-data">
-            <?php
+                <?php
 
-                /*if (isset($_SESSION['idRegistroEmp'])) {
+                if (isset($_SESSION['idRegistroEmp'])) {
 
                     $idRegistro = $_SESSION['idRegistroEmp'];
 
@@ -35,45 +35,45 @@
                     //Almacenamos el resultado de fetchAll en una variable
                  $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
 
-                }else*/ 
+                }else
                 if (isset($_SESSION['idLogin'])) {
 
-                    $idLogin = $_SESSION['idLogin']; 
+                    $idLogin = $_SESSION['idLogin'];
 
-                    $postulaciones=$conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo, tu.user_cv FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
-                    
+                    $postulaciones = $conexion->query("SELECT tp.pos_fkUsuario, tu.user_nombres, tu.user_apellidos, tu.user_contacto, tu.user_correo, te.emp_titulo, tu.user_cv FROM tbl_postulaciones AS tp INNER JOIN tbl_empleos AS te ON tp.pos_fkEmpleo = te.emp_pkid INNER JOIN tbl_usuarios AS tu ON tp.pos_fkUsuario = tu.user_pkid WHERE te.emp_fkUsuario = '$idLogin'");
+
                     /*Almacenamos el resultado de fetchAll en una variable*/
-                    $arrDatos=$postulaciones->fetchAll(PDO::FETCH_ASSOC);
+                    $arrDatos = $postulaciones->fetchAll(PDO::FETCH_ASSOC);
                 }
-            ?>
+                ?>
 
                 <table class="table">
                     <thead class="thead-dark">
-                       <tr> 
+                        <tr>
                             <th class="bg-dark" scope="col">Documento</th>
                             <th class="bg-dark" scope="col">Estudiante</th>
                             <th class="bg-dark" scope="col">Contacto</th>
                             <th class="bg-dark" scope="col">Correo</th>
                             <th class="bg-dark" scope="col">Empleo</th>
                             <th class="bg-dark" scope="col">Hoja de vida</th>
-                       </tr>
+                        </tr>
                     </thead>
 
                     <?php
-                
+
                     /* var_dump($arrDatos);*/
                     /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
                     foreach ($arrDatos as $muestra) {
                         echo '<tr>';
 
                         echo '<td >' . $muestra['pos_fkUsuario'] . '</td>';
-                        echo '<td >' . $muestra['user_nombres'] . ' '.$muestra['user_apellidos'].'</td>';
+                        echo '<td >' . $muestra['user_nombres'] . ' ' . $muestra['user_apellidos'] . '</td>';
                         echo '<td >' . $muestra['user_contacto'] . '</td>';
                         echo '<td >' . $muestra['user_correo'] . '</td>';
                         echo '<td >' . $muestra['emp_titulo'] . '</td>';
-                        echo '<td >' . '<a href="'.$muestra['user_cv'].'" download="Curriculum.pdf">Descargar</a>' . '</td>';
+                        echo '<td >' . '<a href="' . $muestra['user_cv'] . '" download="Curriculum.pdf">Descargar</a>' . '</td>';
                     }
-                ?>
+                    ?>
 
                 </table>
                 </table>

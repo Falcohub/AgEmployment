@@ -114,7 +114,7 @@ include_once 'vistas/HeaderEstudiante.php';
                 <div class="form-row">
                     <div class="form-group">
                         <label for="SubirCV">Adjuntar hoja de vida.</label>
-                        <input type="file" name="file" class="form-control-file" >
+                        <input type="file" name="file" value="" class="form-control-file" required><?php echo $estudiante['user_cv']; ?></input>
                     </div>
                 </div>
                 <div class="form-row">

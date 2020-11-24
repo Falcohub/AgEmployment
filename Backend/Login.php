@@ -13,7 +13,7 @@
 
         if(isset($_POST['TxtUsuario']) && isset($_POST['TxtPassword'])){
             $usuario = $_POST['TxtUsuario'];
-            $password = $_POST['TxtPassword'];
+            $password = sha1($_POST['TxtPassword']);
             
             $db = new Database();
             $conexion = $db->connect();

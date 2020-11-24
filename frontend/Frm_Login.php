@@ -1,8 +1,10 @@
 <?php
+
 session_start();
 
 if (isset($_SESSION['rol'])) {
-    header('location: ../frontend/Frm_InfoEstudiante.php');
+    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Home.php">';
+    exit();
 }
 ?>
 
@@ -30,14 +32,15 @@ if (isset($_SESSION['rol'])) {
                         <i class="fas fa-lock"></i>
                         <input type="password" name="TxtPassword" placeholder="Contraseña" required />
                     </div>
-                    <a href="Frm_RecuperarPass.php">¿Olvidaste tu contraseña?</a>
+                    <a href="Frm_Registro.php">Registrarse</a>
+                    <!--<a href="Frm_RecuperarPass.php">¿Olvidaste tu contraseña?</a>-->
                     <input type="submit" value="Iniciar sesion" class="btn solid">
-                    <p class="social-text">Iniciar sesión con</p>
+                    <!--<p class="social-text">Iniciar sesión con</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
-                    </div>
+                    </div>-->
                 </form>
 
             </div>

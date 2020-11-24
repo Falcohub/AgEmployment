@@ -1,3 +1,12 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['rol'])) {
+    echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Home.php">';
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -32,36 +41,36 @@
                     </div>
                     <button type="submit" value="RegistrarEstudiante" class="btn solid">Registrarse</button>
 
-                    <p class="social-text">Registrarse con</p>
+                    <!--<p class="social-text">Registrarse con</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
-                    </div>
+                    </div>-->
                 </form>
 
                 <form action="../backend/RegistroEmpresa.php" class="sign-up-form" method="POST">
                     <h2 class="tittle">Registro empresa</h2>
                     <div class="input-field">
                         <i class="fas fa-id-card"></i>
-                        <input type="text" name="TxtNIT" placeholder="NIT" required/> 
+                        <input type="text" name="TxtNIT" placeholder="NIT" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="TxtNombreEmpresa" placeholder="Nombre empresa" required/>
+                        <input type="text" name="TxtNombreEmpresa" placeholder="Nombre empresa" required />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" name="TxtCorreo" placeholder="Correo" required/>
+                        <input type="text" name="TxtCorreo" placeholder="Correo" required />
                     </div>
-                    <input type="submit" value="RegistrarEmpresa" class="btn solid">
+                    <input type="submit" value="Registrarse" class="btn solid">
 
-                    <p class="social-text">Registrarse con</p>
+                    <!--<p class="social-text">Registrarse con</p>
                     <div class="social-media">
                         <a href="#" class="social-icon">
                             <i class="fab fa-google"></i>
                         </a>
-                    </div>
+                    </div>-->
                 </form>
             </div>
         </div>

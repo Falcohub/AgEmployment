@@ -13,22 +13,19 @@ if (!isset($_SESSION['rol'])) {
     }
 }
 
+//Establecer conexion
+$db = new Database();
+$conexion = $db->connect();
+
 if (isset($_SESSION['idRegistroEmp'])) {
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
-
     //Consulta para obtener datos
-    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+    $cuenta = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idRegistroEmp']}")->fetch(PDO::FETCH_ASSOC);
+
 } else if (isset($_SESSION['idLogin'])) {
 
-    //Establecer conexion
-    $db = new Database();
-    $conexion = $db->connect();
-
     //Consulta para obtener datos
-    $empresas = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
+    $cuenta = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
 }
 include_once 'vistas/HeaderEmpresa.php';
 ?>
@@ -37,26 +34,35 @@ include_once 'vistas/HeaderEmpresa.php';
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Información de cuenta</h3>
         <div class="card-body">
-            <form>
+            <form action="../backend/CambiarPassEmp.php" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputUser">Usuario</label>
-                        <input type="text" name="txtUsuario" value="<?php echo $empresas['user_correo']; ?>" class="form-control" id="inputUser" placeholder="Correo electronico">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword">Contraseña</label>
-                        <input type="password" name="txtContraseña" value="<?php echo $empresas['user_password']; ?>" class="form-control" id="inputPassword" placeholder="Contraseña">
+                    <div class="form-group">
+                        <label for="inputPassword4">Usuario: </label>
+                        <label for="inputFecha"><?php echo $cuenta['user_correo']; ?></label>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label for="inputFecha">Fecha de creación: </label>
-                        <label for="inputFecha"><?php echo $empresas['user_fechaUser']; ?></label>
+                    <div class="form-group">
+                        <label for="inputAddress2">Fecha de creación: </label>
+                        <label for="inputFecha"><?php echo $cuenta['user_fechaUser']; ?></label>
+                    </div>
+                </div>
+                <h3 class="card-title text-center">Cambiar contraseña</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputAddress">Contraseña actual</label>
+                        <input type="password" name="TxtPassword" value="" class="form-control" id="contraseña" placeholder="Ingrese contraseña">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-2">
-                        <button type="submit" class="btn btn-success w-75">Actualizar</button>
+                    <div class="form-group">
+                        <label for="inputAddress">Nueva contraseña</label>
+                        <input type="password" name="TxtNewPass" value="" class="form-control" id="contraseña" placeholder="Ingrese nueva contraseña">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <button type="submit" name="Actualizar" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>

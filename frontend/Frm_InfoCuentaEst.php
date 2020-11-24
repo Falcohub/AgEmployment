@@ -6,7 +6,6 @@ session_start();
 if (!isset($_SESSION['rol'])) {
     echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_Login.php">';
     exit();
-
 } else {
     if ($_SESSION['rol'] == 'NIT') {
         echo '<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=Frm_InfoEmpresa.php">';
@@ -28,38 +27,47 @@ if (isset($_SESSION['idRegistroEst'])) {
     $cuenta = $conexion->query("SELECT * FROM tbl_usuarios where user_pkid = {$_SESSION['idLogin']}")->fetch(PDO::FETCH_ASSOC);
 }
 
-include('vistas/HeaderEstudiante.php') ?>
+include_once 'vistas/HeaderEstudiante.php';
+?>
 
 <div class="content mt-0 mb-5">
     <div class="shadow p-3 mb-5 bg-white rounded">
         <h3 class="card-title text-center">Informacion de cuenta</h3>
         <div class="card-body ">
-            <form action="../backend/ActualizarInfoEst.php" method="POST">
+            <form action="../backend/CambiarPassEst.php" method="POST">
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="inputPassword4">Usuario</label>
-                        <input type="text" name="txtuser" value=" <?php echo $cuenta['user_correo']; ?>" class="form-control" id="usuario">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="inputAddress">Contraseña</label>
-                        <input type="password" name="txtpass" value=" <?php echo $cuenta['user_password']; ?>" class="form-control" id="contraseña" placeholder="Ingrese contraseña">
+                    <div class="form-group">
+                        <label for="inputPassword4">Usuario: </label>
+                        <label for="inputFecha"><?php echo $cuenta['user_correo']; ?></label>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="inputAddress2">Fecha de creación de cuenta: </label>
+                        <label for="inputAddress2">Fecha de creación: </label>
                         <label for="inputFecha"><?php echo $cuenta['user_fechaUser']; ?></label>
                     </div>
                 </div>
+                <h3 class="card-title text-center">Cambiar contraseña</h3>
                 <div class="form-row">
-                    <div class="form-group col-2">
+                    <div class="form-group">
+                        <label for="inputAddress">Contraseña actual</label>
+                        <input type="password" name="TxtPassword" value="" class="form-control" id="contraseña" placeholder="Ingrese contraseña" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="inputAddress">Nueva contraseña</label>
+                        <input type="password" name="TxtNewPass" value="" class="form-control" id="contraseña" placeholder="Ingrese nueva contraseña" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
                         <button type="submit" name="Actualizar" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-</div>
 </div>
 
 </body>
